@@ -1,0 +1,28 @@
+footer {
+    background-color: black;
+    color: white;
+}
+.footer-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-flexitem{
+    width: 100%;
+    padding: 10px 0;
+}
+
+a{
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.footer-links{
+    background-color: #202324;
+}
+
+.footer-powered{
+    text-align: center;
+    font-size: 14px;
+    padding: 8px 0px;
+}

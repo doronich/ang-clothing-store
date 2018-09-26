@@ -1,0 +1,20 @@
+<header>
+  <div class="header-title">
+    <a routerLink="/" class="header-link">Title</a>
+  </div>
+  <div class="header-menu">Products</div>
+  <div class="header-menu">
+    <a routerLink="/orders" class="header-link" routerLinkActive="header-link_active">Orders</a>
+  </div>
+  <div class="header-auth">
+    <ng-container *ngIf="loggedIn$|async; else elseTemplate">
+      <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Log out</a>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Sign in</a>
+      <a routerLink="/register" class="header-link" routerLinkActive="header-link_active">Sign up</a>
+    </ng-template>
+
+
+  </div>
+</header>
