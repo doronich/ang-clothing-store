@@ -1,17 +1,20 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <mat-form-field>
-    <mat-label>Login</mat-label>
-    <input matInput formControlName="login" type="text">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-label>Password</mat-label>
-    <input matInput formControlName="password" type="password">
-  </mat-form-field>
-  <br>
-  <button mat-flat-button color="accent" type="submit" [disabled]="form.invalid">Sign in</button>
-
-  <mat-progress-spinner *ngIf="pending" color="accent" mode="indeterminate"></mat-progress-spinner>
-
-  <h6 class="login-err">{{errorMessage}}</h6>
-</form>
+<div class="login-form">
+  <h1 class="login-form-title">{{title}}</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" type="text">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+    <br>
+    <button mat-flat-button color="accent" type="submit" [disabled]="(pending || form.invalid)">Sign in</button>
+    <h6 class="login-err" *ngIf="errorMessage">{{errorMessage}}</h6>
+    <p class="login-spinner">
+      <mat-progress-spinner diameter='50' *ngIf="pending" color="accent" mode="indeterminate"></mat-progress-spinner>
+    </p>
+  </form>
+</div>

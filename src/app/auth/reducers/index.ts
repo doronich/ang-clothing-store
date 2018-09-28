@@ -37,11 +37,16 @@ export const getUser = createSelector(selectAuthStatusState, fromAuth.getUser);
     (state: AuthState) => state.auth
 ); */
 
-export const getLoginPageError = createSelector(
+export const getAuthError = createSelector(
     selectAuthStatusState,
     fromAuth.getError
 );
-export const getLoginPagePending = createSelector(
+export const getAuthPending = createSelector(
     selectAuthStatusState,
     fromAuth.getPending
 );
+
+export const getAuthUserExist = createSelector(
+    selectAuthStatusState,
+    fromAuth.getUserExist
+)

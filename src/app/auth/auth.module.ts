@@ -5,7 +5,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from '../core/core.module';
-import { MatFormFieldModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule } from "@angular/material";
+
 import { AuthGuard } from './services/auth.guard';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
@@ -14,6 +14,9 @@ import { AuthEffects } from './effects/effects';
 import { reducers } from './reducers'
 import { TokenService, AuthService } from './services';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { AdminGuard } from './services/admin.guard';
+import { MaterialModule } from '../material';
+import { RegFormComponent } from './components/reg-form/reg-form.component';
 
 @NgModule({
   imports: [
@@ -21,12 +24,12 @@ import { LoginFormComponent } from './components/login-form/login-form.component
     ReactiveFormsModule,
     CoreModule,
     SharedModule,
+    MaterialModule,
     AuthRoutingModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([AuthEffects]),
-    MatFormFieldModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule
+    EffectsModule.forFeature([AuthEffects])
   ],
-  providers: [AuthGuard, TokenService, AuthService],
-  declarations: [LoginComponent, RegisterComponent, LoginFormComponent]
+  providers: [AuthGuard, TokenService, AuthService, AdminGuard],
+  declarations: [LoginComponent, RegisterComponent, LoginFormComponent, RegFormComponent]
 })
 export class AuthModule { }

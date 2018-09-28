@@ -1,6 +1,8 @@
+import { Roles } from ".";
+
 export interface User {
     token: string;
     username: string;
     id: number;
-    role: string;
+    role: Roles.ADMIN | Roles.USER;
 }

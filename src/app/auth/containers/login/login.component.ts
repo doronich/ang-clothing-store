@@ -11,8 +11,8 @@ import * as AuthActions from "../../actions/actions";
 })
 export class LoginComponent implements OnInit {
   returnUrl: string;
-  error$ = this.store.pipe(select(fromAuth.getLoginPageError));
-  isPending$ = this.store.pipe(select(fromAuth.getLoginPagePending));
+  error$ = this.store.pipe(select(fromAuth.getAuthError));
+  isPending$ = this.store.pipe(select(fromAuth.getAuthPending));
 
   constructor(
     private store: Store<fromAuth.State>

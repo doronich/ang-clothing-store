@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { LoginModel } from '../models/auth';
+import { LoginModel, CheckUserModel, RegModel } from '../models/auth';
 import { User } from '../models/user';
 
 export enum AuthActionTypes {
@@ -10,7 +10,9 @@ export enum AuthActionTypes {
     SIGNUP_SUCCESS = '[Auth] Signup Success',
     SIGNUP_FAILURE = '[Auth] Signup Failure',
     LOGOUT = '[Auth] Logout',
-    GET_STATUS = '[Auth] GetStatus'
+    CHECK_USER = '[Auth] CheckUser',
+    CHECK_USER_SUCCESS = '[Auth] CheckUser Success',
+    CHECK_USER_FAILUER = '[Auth] CheckUser Failure'
 }
 
 export class LogIn implements Action {
@@ -30,7 +32,7 @@ export class LogInFailure implements Action {
 
 export class SignUp implements Action {
     readonly type = AuthActionTypes.SIGNUP;
-    constructor(public payload: any) { }
+    constructor(public payload: RegModel) { }
 }
 
 export class SignUpSuccess implements Action {
@@ -47,8 +49,19 @@ export class LogOut implements Action {
     readonly type = AuthActionTypes.LOGOUT;
 }
 
-export class GetStatus implements Action {
-    readonly type = AuthActionTypes.GET_STATUS;
+export class CheckUser implements Action {
+    readonly type = AuthActionTypes.CHECK_USER;
+    constructor(public payload: CheckUserModel) { }
+}
+
+export class CheckUserSuccess implements Action {
+    readonly type = AuthActionTypes.CHECK_USER_SUCCESS;
+    constructor(public payload: boolean) { }
+}
+
+export class CheckUserFailure implements Action {
+    readonly type = AuthActionTypes.CHECK_USER_FAILUER;
+    constructor(public payload: any) { }
 }
 
 export type All =
@@ -59,4 +72,6 @@ export type All =
     | SignUpSuccess
     | SignUpFailure
     | LogOut
-    | GetStatus;
+    | CheckUser
+    | CheckUserSuccess
+    | CheckUserFailure;

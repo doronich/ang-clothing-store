@@ -1,3 +1,5 @@
-<p>
-  register works!
-</p>
+<div class="centered">
+  <app-reg-form (submitted)="onSubmit($event)" (check)="onCheck($event)" [exist]="userExist$ | async" [pending]="isPending$ | async"
+    [errorMessage]="error$ | async">
+  </app-reg-form>
+</div>
