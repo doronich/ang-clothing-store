@@ -1,0 +1,28 @@
+:host{
+    width: 100%;
+}
+
+a{
+    border: 1px solid black;
+}
+
+.order-page{
+    display: flex;
+    flex-direction: row;
+}
+
+.order-block{
+    width: 50%;
+    /* border: 1px solid black; */
+    padding: 15px;
+    box-shadow: 0px 5px 5px rgb(139, 139, 139);
+}
+
+@media(max-width:900px){
+    .order-page{
+        flex-direction: column;
+    }
+    .order-block{
+        width: 100%;
+    }
+}

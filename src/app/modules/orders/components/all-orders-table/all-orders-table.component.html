@@ -1,0 +1,50 @@
+<div class="order-table">
+  <h1>Orders</h1>
+  <!--   <table>
+    <thead>
+      <tr>
+        <td *ngFor="let col of columnsToDisplay">{{col.toString()}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of dataSource">
+        <td>a</td>
+        <td>{{row.id}}</td>
+        <td>{{row.username}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.phoneNumber}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.comment}}</td>
+        <td>{{row.totalPrice}}</td>
+        <td>{{row.code.discount}}</td>
+        <td>{{row.code.code}}</td>
+        <td>{{row.createdDate}}</td>
+        <td>{{row.status}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <ngx-datatable #datatable class="material table" [columnMode]="'force'" [columns]="cols" [rows]="dataSource"
+    [rowHeight]="50" [scrollbarH]="true" [limit]="15" [footerHeight]="50">
+  </ngx-datatable>
+
+  <!--   <ngx-datatable-row-detail #detailedRow (toggle)="onDetailToggle($event)">
+    <ng-template let-row=" row" let-expanded="expanded" ngx-datatable-row-detail-template>
+      <div>
+        {{row.id}}
+      </div>
+    </ng-template>
+  </ngx-datatable-row-detail> -->
+
+  <ng-template #buttons let-row="row" ngx-datatable-cell-template>
+    <button title="delete" mat-mini-fab color='warn' (click)="remove.emit(row)">
+      <mat-icon>remove_circle_outline</mat-icon>
+    </button>
+    <a routerLink="{{row.id}}">
+      <button title="details" mat-mini-fab color='accent'>
+        <mat-icon>details</mat-icon>
+      </button>
+    </a>
+  </ng-template>
+</div>

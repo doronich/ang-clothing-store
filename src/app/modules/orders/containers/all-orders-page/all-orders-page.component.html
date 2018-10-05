@@ -1,0 +1,12 @@
+<div class="order-container">
+
+
+  <ng-container *ngIf="isLoading$ | async; else elseTemplate">
+    Loading...
+  </ng-container>
+  <ng-template #elseTemplate>
+    <app-all-orders-table [dataSource]="orders$ | async" (remove)="removeOrder($event)">
+    </app-all-orders-table>
+  </ng-template>
+
+</div>

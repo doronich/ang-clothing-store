@@ -1,0 +1,32 @@
+.order-list-item{
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid black;
+    font-size: 1.7rem;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.item-70{
+    width: 70%;
+}
+
+.item-10{
+    width: 10%;
+}
+
+.item-15{
+    width: 15%;
+}
+
+@media(max-width:600px){
+    .order-list-item{
+        font-size: 1rem;
+    }
+}
+
