@@ -21,6 +21,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { OrdersModule } from './modules/orders/orders.module';
+import { ItemsModule } from './modules/items/items.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { OrdersModule } from './modules/orders/orders.module';
     SharedModule,
     AuthModule,
     OrdersModule,
+    ItemsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
 
     StoreRouterConnectingModule.forRoot({

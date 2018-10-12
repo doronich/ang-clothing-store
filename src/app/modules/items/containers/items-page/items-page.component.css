@@ -1,0 +1,24 @@
+:host{
+    width: 100%;
+}
+
+.items-container{
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.paging{
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+@media(max-width:600px){
+    .flex{
+        flex-direction: column;
+    }
+}

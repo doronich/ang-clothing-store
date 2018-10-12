@@ -3,7 +3,6 @@ import { Store, select } from '@ngrx/store';
 import * as fromOrders from "../../reducers";
 import * as OrderActions from '../../actions/order.actions'
 import { ActivatedRoute } from '@angular/router';
-import { UpdateOrder } from '../../models';
 
 @Component({
   selector: 'app-order-page',
@@ -25,7 +24,6 @@ export class OrderPageComponent implements OnInit {
       this.store.dispatch(new OrderActions.GetOrder(this.route.snapshot.params.id))
       this.store.dispatch(new OrderActions.GetOrderItems(this.route.snapshot.params.id))
     }
-    //console.log(this.order$)
   }
 
   update(event$) {

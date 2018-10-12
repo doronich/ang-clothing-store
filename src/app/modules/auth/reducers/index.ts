@@ -46,6 +46,11 @@ export const getAuthPending = createSelector(
     fromAuth.getPending
 );
 
+export const getIsAdmin = createSelector(
+    selectAuthStatusState,
+    fromAuth.getIsAdmin
+)
+
 export const getAuthUserExist = createSelector(
     selectAuthStatusState,
     fromAuth.getUserExist

@@ -2,9 +2,9 @@
   <div class="header-title">
     <a routerLink="/" class="header-link">Title</a>
   </div>
-  <div class="header-menu">Products</div>
   <div class="header-menu">
-    <a routerLink="/orders" class="header-link" routerLinkActive="header-link_active">Orders</a>
+    <a routerLink="/orders" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">Orders</a>
+    <a routerLink="/items" class="header-link" routerLinkActive="header-link_active">Items</a>
   </div>
   <div class="header-auth">
     <ng-container *ngIf="loggedIn$|async; else elseTemplate">

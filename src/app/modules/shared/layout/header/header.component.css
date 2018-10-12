@@ -17,6 +17,11 @@ header>div{
     height: 100%;
 }
 
+.header-menu{
+    display: flex;
+    flex-direction: row;
+}
+
 .header-auth{
     display: flex;
     flex-direction: row;

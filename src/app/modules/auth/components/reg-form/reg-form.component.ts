@@ -35,10 +35,10 @@ export class RegFormComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      email: new FormControl("dsadfG@gmail.com", [Validators.required, Validators.email]),
-      login: new FormControl("dron4d", [Validators.required, Validators.minLength(6)]),
-      password: new FormControl("Dimon123", [Validators.required, Validators.pattern(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}/)]),
-      confirmPassword: new FormControl("Dimon123", [Validators.required]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      login: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      password: new FormControl("", [Validators.required, Validators.pattern(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}/)]),
+      confirmPassword: new FormControl("", [Validators.required]),
       firstName: new FormControl(""),
       lastName: new FormControl("")
     },

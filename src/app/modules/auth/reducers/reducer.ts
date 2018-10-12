@@ -1,17 +1,21 @@
 import { All, AuthActionTypes } from "../actions/actions";
-import { User } from "../models/user";
+import { User, Roles } from "../models/user";
 
 export interface State {
     isLoading: boolean;
     isAuthenticated: boolean;
     user: User | null;
     error?: any;
-    userExist: boolean | null
+    userExist: boolean | null,
+    isAdmin: boolean
 }
 
 export const initialState: State = {
     isAuthenticated: window.localStorage.getItem('token') ? true : false,
     user: JSON.parse(window.localStorage.getItem('token')) || null,
+    isAdmin: JSON.parse(window.localStorage.getItem('token')) !== null
+        ? (JSON.parse(window.localStorage.getItem('token')) as User).role === Roles.ADMIN
+        : false,
     error: null,
     isLoading: false,
     userExist: null
@@ -23,7 +27,8 @@ export function reducer(state = initialState, action: All): State {
             return {
                 ...state,
                 isLoading: true,
-                error: null
+                error: null,
+                isAdmin: false
             }
         }
         case AuthActionTypes.LOGIN_SUCCESS: {
@@ -32,7 +37,8 @@ export function reducer(state = initialState, action: All): State {
                 isAuthenticated: true,
                 user: action.payload,
                 error: null,
-                isLoading: false
+                isLoading: false,
+                isAdmin: (JSON.parse(window.localStorage.getItem('token')) as User).role === Roles.ADMIN
             }
         }
         case AuthActionTypes.LOGIN_FAILURE: {
@@ -75,7 +81,8 @@ export function reducer(state = initialState, action: All): State {
                 ...state,
                 isLoading: true,
                 error: null,
-                userExist: null
+                userExist: null,
+                isAdmin: false
             }
         }
         case AuthActionTypes.SIGNUP_SUCCESS: {
@@ -84,7 +91,8 @@ export function reducer(state = initialState, action: All): State {
                 isLoading: false,
                 user: action.payload,
                 error: null,
-                isAuthenticated: true
+                isAuthenticated: true,
+                isAdmin: (JSON.parse(window.localStorage.getItem('token')) as User).role === Roles.ADMIN
             }
         }
         case AuthActionTypes.SIGNUP_FAILURE: {
@@ -105,3 +113,4 @@ export const getUser = (state: State) => state.user;
 export const getError = (state: State) => state.error;
 export const getPending = (state: State) => state.isLoading;
 export const getUserExist = (state: State) => state.userExist;
+export const getIsAdmin = (state: State) => state.isAdmin;

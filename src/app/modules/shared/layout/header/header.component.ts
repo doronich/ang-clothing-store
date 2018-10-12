@@ -9,6 +9,7 @@ import * as fromAuth from '../../../auth/reducers'
 })
 export class HeaderComponent implements OnInit {
   loggedIn$ = this.store.pipe(select(fromAuth.getLoggedIn));
+  isAdmin$ = this.store.pipe(select(fromAuth.getIsAdmin));
   constructor(private store: Store<fromAuth.State>) { }
 
   ngOnInit() {

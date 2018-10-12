@@ -1,0 +1,20 @@
+<div class="pag-container">
+  <div class="pag-button noselect" (click)="toFirst()" *ngIf="!isFirst()">
+    <mat-icon>first_page</mat-icon>
+  </div>
+  <div class="pag-button noselect" [ngClass]="{'pag-butoon__dis': !pageData.hasPrev}" *ngIf="!isFirst()" (click)="toPrev()">
+    <mat-icon>chevron_left</mat-icon>
+  </div>
+
+  <div class="pag-button noselect" *ngFor="let i of pageData.pages" [ngClass]="{'pag-current': i === pageData.index,'notvisible': i>=pageData.index+3 || i<=pageData.index-3}"
+    (click)="toPage(i)">
+    {{i}}
+  </div>
+  <div class="pag-button noselect" [ngClass]="{'pag-butoon__dis': !pageData.hasNext}" *ngIf="!isLast()" (click)="toNext()">
+    <mat-icon>chevron_right</mat-icon>
+  </div>
+
+  <div class="pag-button noselect" (click)="toLast()" *ngIf="!isLast()">
+    <mat-icon>last_page</mat-icon>
+  </div>
+</div>

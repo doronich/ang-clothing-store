@@ -1,0 +1,11 @@
+<div class="items-container">
+  <div class="flex">
+    <app-filters (search)="search($event)" [categories]="categories$ | async" [loading]="catsLoading$" [subCategories]="subCategories$ | async">
+    </app-filters>
+    <app-items [isLoggedIn]="isLoggedIn$ | async" [loading]="loading$ | async" [items]="items$ | async" [error]="error$ | async"></app-items>
+  </div>
+  <div class="paging">
+    <app-pagination [loading]="loading$ | async" [pageData]="pageData$ | async" (search)="search($event)"></app-pagination>
+  </div>
+
+</div>

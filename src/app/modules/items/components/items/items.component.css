@@ -1,0 +1,14 @@
+.items-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width:600px){
+
+    .items-container{
+        align-items: center;
+        flex-direction: column;
+    }
+}

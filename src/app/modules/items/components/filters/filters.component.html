@@ -1,0 +1,45 @@
+<div class="filters-container">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="filter-item">
+      <div>
+        Page size:
+        <select formControlName="pageSize" (change)="changePageSize($event)">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="25">50</option>
+        </select>
+      </div>
+    </div>
+    <div class="filter-item">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text" placeholder="for example: air max">
+      </mat-form-field>
+    </div>
+
+    <div class="filter-item" *ngIf="!loading">
+      <mat-form-field>
+        <mat-select formControlName="category" placeholder="Category" (selectionChange)="selectCategory($event)">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-item" *ngIf="!loading">
+      <mat-form-field>
+        <mat-select formControlName="subCategory" placeholder="Subcategory">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let sub of currentSubs" value="{{sub.id}}">{{sub.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-item">
+      <button mat-flat-button color="primary" type="submit">Search</button>
+      <button mat-flat-button color="accent" (click)="clear()">Reset</button>
+    </div>
+
+  </form>
+</div>

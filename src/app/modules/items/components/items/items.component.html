@@ -1,0 +1,9 @@
+<ng-container *ngIf="loading; else elseTemplate">
+  Loading...
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="items-container">
+    <app-item *ngFor="let item of items" [item]="item" [isLoggedIn]="isLoggedIn"></app-item>
+  </div>
+
+</ng-template>

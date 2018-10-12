@@ -1,0 +1,66 @@
+:host{
+    width: 100%;
+}
+
+button{
+    background-color: inherit;
+    border: none;
+    height: auto;
+    width: auto;
+}
+
+.pag-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.pag-button{
+    width: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: center;
+    margin: 0 1px;
+    cursor: pointer;
+}
+
+.pag-button:hover{
+    background-color: black;
+    color: white;
+    transition: all 0.4s;
+}
+
+.pag-butoon__dis{
+    cursor: default;
+    color: #ccc;
+}
+
+.pag-butoon__dis:hover{
+    background-color:white;
+    color: #ccc;
+}
+
+.notvisible{
+    display: none;
+}
+
+
+.pag-current{
+    background-color: black;
+    color: white;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}

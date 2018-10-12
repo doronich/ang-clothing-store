@@ -1,0 +1,31 @@
+<div class="item-container">
+  <div class="item item-pic">
+    <a [routerLink]="[ '/items', item.id ]">
+      <img src="{{item.previewImagePath}}" alt="item.name" title="{{item.name}}">
+    </a>
+  </div>
+  <div class="descr">
+    <div class="not-active" *ngIf="!item.active">
+      Not available
+    </div>
+    <div class="item item-name" title="{{item.name}}">
+      <a [routerLink]="[ '/items', item.id ]">
+        {{item.name}}
+      </a>
+    </div>
+    <div class="item">
+      {{item.price}} BYN
+    </div>
+    <div *ngIf="isLoggedIn">
+      <button mat-mini-fab color="disabled">
+        <ng-container *ngIf="item.isFavorite; else elseTemplate">
+          <mat-icon color="warn">favorite</mat-icon>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <mat-icon>favorite_border</mat-icon>
+        </ng-template>
+      </button>
+    </div>
+  </div>
+
+</div>
