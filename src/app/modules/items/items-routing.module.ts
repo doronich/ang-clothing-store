@@ -6,6 +6,9 @@ const routes: Routes = [
   {
     path: 'items',
     component: ItemsPageComponent
+  },
+  {
+    path: '**', redirectTo: ''
   }
 ];
 

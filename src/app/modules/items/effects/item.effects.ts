@@ -10,16 +10,33 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 import { Observable, asyncScheduler, of } from 'rxjs';
-import { Search, ItemActionTypes, SearchComplete, SearchError, GetCats, CatsTypes, GetCatsSuccess, GetCatsFailure, GetSubCats, GetSubCatsFailure, GetSubCatsSuccess } from '../actions';
+import {
+  Search,
+  ItemActionTypes,
+  SearchComplete,
+  SearchError,
+  GetCats,
+  CatsTypes,
+  GetCatsSuccess,
+  GetCatsFailure,
+  GetSubCats,
+  GetSubCatsFailure,
+  GetSubCatsSuccess,
+  AddFavItem,
+  RemoveFavItem,
+  RemoveFavItemResp,
+  AddFavItemResp
+} from '../actions';
 import { Action } from '@ngrx/store';
 import { ItemsResponse } from '../models/items-response';
 import { CategoryService } from '../services/category.service';
+import { TokenService } from '../../auth/services';
 
 
 @Injectable()
 export class ItemEffects {
 
-  constructor(private actions$: Actions, private itemService: ItemService, private categoryService: CategoryService) { }
+  constructor(private actions$: Actions, private itemService: ItemService, private categoryService: CategoryService, private tokenService: TokenService) { }
 
   @Effect()
   search$ = ({ debounce = 300, scheduler = asyncScheduler } = {}): Observable<Action> => this.actions$.pipe(
@@ -65,4 +82,33 @@ export class ItemEffects {
       )
     })
   )
+
+  @Effect()
+  addFav$: Observable<Action> = this.actions$.pipe(
+    ofType<AddFavItem>(ItemActionTypes.AddFav),
+    map(action => action.payload),
+    switchMap(id => {
+      const userId: number = this.tokenService.getUser().id;
+      return this.itemService.addFavItem({ itemId: id, userId }).pipe(
+        map(data => {
+          return new AddFavItemResp()
+        })
+      )
+    })
+  )
+
+  @Effect()
+  removeFav$ = this.actions$.pipe(
+    ofType<RemoveFavItem>(ItemActionTypes.RemoveFav),
+    map(action => action.payload),
+    switchMap(id => {
+      const userId: number = this.tokenService.getUser().id;
+      return this.itemService.removeFavItem({ itemId: id, userId }).pipe(
+        map(data => {
+          return new RemoveFavItemResp();
+        })
+      )
+    })
+  )
+
 }

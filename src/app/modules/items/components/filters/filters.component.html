@@ -11,6 +11,15 @@
         </select>
       </div>
     </div>
+
+    <div class="filter-item">
+      <mat-radio-group formControlName="gender">
+        <mat-radio-button value="male">Men</mat-radio-button>
+        <br>
+        <mat-radio-button value="female">Women</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
     <div class="filter-item">
       <mat-form-field>
         <mat-label>Name</mat-label>
@@ -37,8 +46,21 @@
     </div>
 
     <div class="filter-item">
-      <button mat-flat-button color="primary" type="submit">Search</button>
-      <button mat-flat-button color="accent" (click)="clear()">Reset</button>
+      <div>
+        <mat-form-field class="price-item">
+          <mat-label>Min price</mat-label>
+          <input formControlName="minPrice" matInput type="number" min="0" step="5">
+        </mat-form-field>
+        <mat-form-field class="price-item">
+          <mat-label>Max price</mat-label>
+          <input matInput formControlName="maxPrice" type="number" min="0" step="5">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="filter-item">
+      <button mat-flat-button color="primary" type="submit">Apply</button>
+      <button mat-flat-button color="accent" (click)="clear($event)">Reset</button>
     </div>
 
   </form>

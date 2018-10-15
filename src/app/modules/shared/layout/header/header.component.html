@@ -6,7 +6,13 @@
     <a routerLink="/orders" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">Orders</a>
     <a routerLink="/items" class="header-link" routerLinkActive="header-link_active">Items</a>
   </div>
+
   <div class="header-auth">
+    <a class="cart-button" routerLink="/cart" routerLinkActive="header-link_active">
+      <button mat-icon-button>
+        <mat-icon matBadge="{{cartCount$ | async}}" matBadgeSize="medium" matBadgeColor="accent">shopping_cart</mat-icon>
+      </button>
+    </a>
     <ng-container *ngIf="loggedIn$|async; else elseTemplate">
       <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Log out</a>
     </ng-container>
@@ -14,7 +20,5 @@
       <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Sign in</a>
       <a routerLink="/register" class="header-link" routerLinkActive="header-link_active">Sign up</a>
     </ng-template>
-
-
   </div>
 </header>

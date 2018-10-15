@@ -5,6 +5,7 @@ import * as fromItems from "../../reducers";
 import * as fromAuth from '../../../auth/reducers'
 import { Observable } from 'rxjs';
 import * as ItemActions from '../../actions'
+
 import { GetCats, GetSubCats } from '../../actions';
 
 
@@ -22,6 +23,7 @@ export class ItemsPageComponent implements OnInit {
   categories$: Observable<Category[]> = this.store.pipe(select(fromItems.getCategories));
   subCategories$: Observable<SubCategory[]> = this.store.pipe(select(fromItems.getSubCategories));
   isLoggedIn$: Observable<boolean> = this.authStore.pipe(select(fromAuth.getLoggedIn));
+  cartItems$: Observable<number[]> = this.store.pipe(select(fromItems.getCartItems));
   filters: Filters = {
     pageIndex: 1,
     pageSize: 5,
@@ -40,4 +42,19 @@ export class ItemsPageComponent implements OnInit {
     this.store.dispatch(new ItemActions.Search(this.filters));
   }
 
+  addToCart(id: number) {
+    this.store.dispatch(new ItemActions.AddCartItem(id))
+  }
+
+  removeFromCart(id: number) {
+    this.store.dispatch(new ItemActions.RemoveCartItem(id));
+  }
+
+  addFav(id: number) {
+    this.store.dispatch(new ItemActions.AddFavItem(id))
+  }
+
+  removeFav(id: number) {
+    this.store.dispatch(new ItemActions.RemoveFavItem(id))
+  }
 }

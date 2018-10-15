@@ -6,15 +6,32 @@ import {
   MatProgressSpinnerModule,
   MatIconModule,
   MatOptionModule,
-  MatSelectModule
+  MatSelectModule,
+  MatRadioModule,
+  MatBadgeModule
 } from "@angular/material";
 
 @NgModule({
   imports: [
-    MatFormFieldModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule, MatIconModule, MatOptionModule, MatSelectModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatBadgeModule
   ],
   exports: [
-    MatFormFieldModule, MatInputModule, MatButtonModule, MatProgressSpinnerModule, MatIconModule, MatOptionModule, MatSelectModule
+    MatFormFieldModule,
+    MatInputModule, MatButtonModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatBadgeModule
   ],
   declarations: []
 })

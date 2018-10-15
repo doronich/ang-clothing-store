@@ -1,11 +1,13 @@
 import * as fromItems from "./item.reducer";
 import * as fromCats from './category.reducer'
 import * as fromRoot from 'src/app/reducers'
+import * as fromCart from './cart.reducer'
 import { ActionReducerMap, createFeatureSelector, createSelector } from "@ngrx/store";
 
 export interface ItemsState {
     items: fromItems.State,
-    categories: fromCats.State
+    categories: fromCats.State,
+    cart: fromCart.State
 }
 
 export interface State extends fromRoot.State {
@@ -14,7 +16,8 @@ export interface State extends fromRoot.State {
 
 export const reducers: ActionReducerMap<ItemsState> = {
     items: fromItems.reducer,
-    categories: fromCats.reducer
+    categories: fromCats.reducer,
+    cart: fromCart.reducer
 }
 
 export const selectItemsState = createFeatureSelector<State, ItemsState>('items');
@@ -26,6 +29,11 @@ export const selectItemEntityState = createSelector(
 export const selectCatsEntityState = createSelector(
     selectItemsState,
     (state: ItemsState) => state.categories
+)
+
+export const selectCartEntityState = createSelector(
+    selectItemsState,
+    (state: ItemsState) => state.cart
 )
 
 export const getItems = createSelector(
@@ -67,4 +75,14 @@ export const getCatsLoading = createSelector(
 export const getCatsError = createSelector(
     selectCatsEntityState,
     fromCats.getError
+)
+
+export const getCartItems = createSelector(
+    selectCartEntityState,
+    fromCart.getCartItems
+)
+
+export const getCartItemsCount = createSelector(
+    selectCartEntityState,
+    fromCart.getCartItemsCount
 )

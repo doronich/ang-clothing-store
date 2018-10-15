@@ -57,6 +57,24 @@ export function reducer(state = initialState, action: ItemActionsUnion): State {
                 error: "Error while loading items."
             }
         }
+        case ItemActionTypes.AddFav: {
+            return {
+                ...state,
+                items: state.items.map(item => {
+                    if (item.id === action.payload) return { ...item, isFavorite: true }
+                    return item;
+                })
+            }
+        }
+        case ItemActionTypes.RemoveFav: {
+            return {
+                ...state,
+                items: state.items.map(item => {
+                    if (item.id === action.payload) return { ...item, isFavorite: false }
+                    return item;
+                })
+            }
+        }
         default:
             return state;
     }

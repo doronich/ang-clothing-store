@@ -8,23 +8,37 @@
     <div class="not-active" *ngIf="!item.active">
       Not available
     </div>
-    <div class="item item-name" title="{{item.name}}">
-      <a [routerLink]="[ '/items', item.id ]">
+    <a [routerLink]="[ '/items', item.id ]">
+      <div class="item item-name" title="{{item.name}}">
         {{item.name}}
-      </a>
-    </div>
+      </div>
+    </a>
     <div class="item">
-      {{item.price}} BYN
+      ${{item.price}}
     </div>
     <div *ngIf="isLoggedIn">
-      <button mat-mini-fab color="disabled">
-        <ng-container *ngIf="item.isFavorite; else elseTemplate">
+
+      <ng-container *ngIf="item.isFavorite; else elseTemplate">
+        <button mat-icon-button color="disabled" (click)="removeFav.emit(item.id)">
           <mat-icon color="warn">favorite</mat-icon>
-        </ng-container>
-        <ng-template #elseTemplate>
+        </button>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button mat-icon-button color="disabled" (click)="addFav.emit(item.id)">
           <mat-icon>favorite_border</mat-icon>
-        </ng-template>
-      </button>
+        </button>
+      </ng-template>
+
+      <ng-container *ngIf=" inCart; else elseCart">
+        <button mat-icon-button color="accent" (click)="removeFromCart.emit(item.id)">
+          <mat-icon>remove_shopping_cart</mat-icon>
+        </button>
+      </ng-container>
+      <ng-template #elseCart>
+        <button mat-icon-button color="desabled" (click)="addToCart.emit(item.id)">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </ng-template>
     </div>
   </div>
 

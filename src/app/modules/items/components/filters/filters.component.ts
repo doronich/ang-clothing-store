@@ -25,18 +25,23 @@ export class FiltersComponent implements OnInit {
       name: new FormControl(''),
       pageSize: new FormControl(this.pageSize),
       category: new FormControl(),
-      subCategory: new FormControl()
+      subCategory: new FormControl(),
+      gender: new FormControl('male'),
+      maxPrice: new FormControl(1000),
+      minPrice: new FormControl(0)
     })
     this.search.emit({ pageSize: this.pageSize } as Filters);
   }
 
   submit() {
-    console.log(this.form.value)
     const filters: Filters = {
       name: this.form.value.name,
       pageSize: this.form.value.pageSize,
       kind: this.form.value.category,
-      subkind: this.form.value.subCategory
+      subkind: this.form.value.subCategory,
+      sex: this.form.value.gender,
+      startPrice: this.form.value.minPrice,
+      endPrice: this.form.value.maxPrice
     } as Filters;
     if (this.pageSizeChanged) {
       filters.pageIndex = 1;
@@ -45,12 +50,17 @@ export class FiltersComponent implements OnInit {
     this.search.emit(filters);
   }
 
-  clear() {
+  clear(event) {
+    event.preventDefault();
+
     this.form.setValue({
       name: '',
       pageSize: this.pageSize,
       category: null,
-      subCategory: null
+      subCategory: null,
+      maxPrice: 1000,
+      minPrice: 0,
+      gender: 'male'
     })
   }
 
@@ -58,6 +68,10 @@ export class FiltersComponent implements OnInit {
     if (event.value !== undefined) {
       const categoryId: number = Number.parseInt(event.value, 10);
       this.currentSubs = this.subCategories.filter(i => i.categoryId === categoryId);
+      this.form.setValue({
+        ...this.form.value,
+        subCategory: null
+      })
     }
 
   }

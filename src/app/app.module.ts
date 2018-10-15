@@ -22,6 +22,7 @@ import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { OrdersModule } from './modules/orders/orders.module';
 import { ItemsModule } from './modules/items/items.module';
+import { MaterialModule } from './modules/material';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ItemsModule } from './modules/items/items.module';
     SharedModule,
     AuthModule,
     OrdersModule,
+    MaterialModule,
     ItemsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
 

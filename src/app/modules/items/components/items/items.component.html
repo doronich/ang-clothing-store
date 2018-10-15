@@ -3,7 +3,9 @@
 </ng-container>
 <ng-template #elseTemplate>
   <div class="items-container">
-    <app-item *ngFor="let item of items" [item]="item" [isLoggedIn]="isLoggedIn"></app-item>
+    <app-item *ngFor="let item of items" [item]="item" [isLoggedIn]="isLoggedIn" [inCart]="checkForCart(item.id,cartItems)"
+      (addToCart)="addToCart.emit($event)" (removeFromCart)="removeFromCart.emit($event)" (addFav)="addFav.emit($event)"
+      (removeFav)="removeFav.emit($event)"></app-item>
   </div>
 
 </ng-template>

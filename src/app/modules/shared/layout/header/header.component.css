@@ -45,3 +45,7 @@ header>div{
 .header-link_active{
     border-bottom: 3px solid white;
 }
+
+.cart-button{
+    color: white;
+}

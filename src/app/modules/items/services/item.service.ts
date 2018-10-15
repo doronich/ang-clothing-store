@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/services';
-import { Filters } from '../models';
+import { Filters, Fav } from '../models';
 import { HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -23,6 +23,18 @@ export class ItemService {
       map(data => {
         return data as ItemsResponse;
       })
+    )
+  }
+
+  addFavItem(obj: Fav) {
+    return this.apiServcie.post(`/favitem`, obj).pipe(
+      map(data => data)
+    )
+  }
+
+  removeFavItem(obj: Fav) {
+    return this.apiServcie.delete(`/favitem?userId=${obj.userId}&itemId=${obj.itemId}`).pipe(
+      map(data => data)
     )
   }
 }
