@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/services';
-import { Filters, Fav } from '../models';
+import { Filters, Fav, ItemForCart } from '../models';
 import { HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ItemsResponse } from '../models/items-response';
+
 
 @Injectable()
 export class ItemService {

@@ -38,11 +38,11 @@
   </ngx-datatable-row-detail> -->
 
   <ng-template #buttons let-row="row" ngx-datatable-cell-template>
-    <button title="delete" mat-mini-fab color='warn' (click)="remove.emit(row)">
+    <button title="delete" mat-icon-button color='warn' (click)="remove.emit(row)">
       <mat-icon>remove_circle_outline</mat-icon>
     </button>
     <a routerLink="{{row.id}}">
-      <button title="details" mat-mini-fab color='accent'>
+      <button title="details" mat-icon-button color='primary'>
         <mat-icon>details</mat-icon>
       </button>
     </a>

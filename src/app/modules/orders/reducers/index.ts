@@ -1,9 +1,11 @@
 import * as fromOrders from './orders.reducers'
+import * as fromShopCart from './cart.reducer'
 import * as fromRoot from 'src/app/reducers'
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface OrdersState {
-    orders: fromOrders.State
+    orders: fromOrders.State,
+    cart: fromShopCart.State
 }
 
 export interface State extends fromRoot.State {
@@ -11,7 +13,8 @@ export interface State extends fromRoot.State {
 }
 
 export const reducers: ActionReducerMap<OrdersState> = {
-    orders: fromOrders.reducer
+    orders: fromOrders.reducer,
+    cart: fromShopCart.reducer
 }
 
 export const selectOrdersState = createFeatureSelector<State, OrdersState>('orders');
@@ -19,6 +22,11 @@ export const selectOrdersState = createFeatureSelector<State, OrdersState>('orde
 export const selectOrdersEntitiesState = createSelector(
     selectOrdersState,
     (state: OrdersState) => state.orders
+)
+
+export const selectShopCartEntitiesState = createSelector(
+    selectOrdersState,
+    (state: OrdersState) => state.cart
 )
 
 export const getLoading = createSelector(
@@ -49,4 +57,25 @@ export const getOrderItems = createSelector(
 export const getError = createSelector(
     selectOrdersEntitiesState,
     fromOrders.getError
+)
+
+
+export const getItems = createSelector(
+    selectShopCartEntitiesState,
+    fromShopCart.getItems
+)
+
+export const getCartError = createSelector(
+    selectShopCartEntitiesState,
+    fromShopCart.getError
+)
+
+export const getCartLoading = createSelector(
+    selectShopCartEntitiesState,
+    fromShopCart.getLoading
+)
+
+export const getCartTotal = createSelector(
+    selectShopCartEntitiesState,
+    fromShopCart.getTotal
 )

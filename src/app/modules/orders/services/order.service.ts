@@ -4,6 +4,8 @@ import { ApiService } from 'src/app/modules/core/services';
 import { Observable } from 'rxjs';
 import { Order, UpdateOrder, CreateOrder } from 'src/app/modules/orders/models';
 import { OrderItem } from '../models/order-item';
+import { ItemForCart } from '../../items/models';
+import * as qs from 'qs'
 
 @Injectable()
 export class OrderService {
@@ -28,6 +30,14 @@ export class OrderService {
           return data;
         })
       )
+  }
+
+  getToCart(ids: number[]): Observable<ItemForCart[]> {
+    return this.apiService.get(`/item/cart?${qs.stringify({ itemsId: ids })}`).pipe(
+      map(data => {
+        return data
+      })
+    )
   }
 
   getUserOrders(id: number): Observable<Order[]> {

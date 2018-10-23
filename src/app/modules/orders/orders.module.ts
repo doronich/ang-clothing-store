@@ -13,8 +13,11 @@ import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { OrderPageComponent } from './containers/order-page/order-page.component';
 import { OrderInfoComponent } from './components/order-info/order-info.component';
 import { OrderItemsListComponent } from './components/order-items-list/order-items-list.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { OrderListItemComponent } from './components/order-list-item/order-list-item.component';
+import { CreateOrderPageComponent } from './containers/create-order-page/create-order-page.component';
+import { ItemlistComponent } from './components/itemlist/itemlist.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   imports: [
@@ -22,11 +25,12 @@ import { OrderListItemComponent } from './components/order-list-item/order-list-
     ReactiveFormsModule,
     OrdersRoutingModule,
     MaterialModule,
+    FormsModule,
     StoreModule.forFeature('orders', reducers),
     EffectsModule.forFeature([OrderEffects]),
     NgxDatatableModule
   ],
   providers: [OrderService, CodeService],
-  declarations: [AllOrdersPageComponent, AllOrdersTableComponent, OrderPageComponent, OrderInfoComponent, OrderItemsListComponent, OrderListItemComponent]
+  declarations: [AllOrdersPageComponent, AllOrdersTableComponent, OrderPageComponent, OrderInfoComponent, OrderItemsListComponent, OrderListItemComponent, CreateOrderPageComponent, ItemlistComponent, UserInfoComponent]
 })
 export class OrdersModule { }

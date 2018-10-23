@@ -1,0 +1,51 @@
+.grid-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 20% 20% 5%;
+    text-align: center;
+}
+
+.grid-item{
+    padding: 5px;
+}
+
+.grid-item-row{
+    grid-column: 1/ span 3;
+    border: 1px solid black;
+    margin-bottom: 3px;
+    color: black;
+}
+
+.grid-item-row:hover{
+    background-color: #333;
+    color: white;
+    transition: all .3s;
+}
+
+.grid-item-row:hover a{
+    color: white;
+    transition: all .3s;
+}
+
+a{
+    text-decoration: underline;
+}
+
+.item-name{
+    text-align: start;
+}
+
+input[type=number]{
+    width: 40px;
+}
+
+h4{
+    margin: 5px;
+    text-align: end;
+}
+
+.remove{
+    color: rgb(195, 35, 35);
+    font-weight: bold;
+    cursor: pointer;
+}

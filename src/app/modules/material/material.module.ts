@@ -8,7 +8,8 @@ import {
   MatOptionModule,
   MatSelectModule,
   MatRadioModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatTableModule
 } from "@angular/material";
 
 @NgModule({
@@ -21,7 +22,8 @@ import {
     MatOptionModule,
     MatSelectModule,
     MatRadioModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTableModule
   ],
   exports: [
     MatFormFieldModule,
@@ -31,7 +33,8 @@ import {
     MatOptionModule,
     MatSelectModule,
     MatRadioModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTableModule
   ],
   declarations: []
 })

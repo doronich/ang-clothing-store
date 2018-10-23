@@ -8,12 +8,12 @@
   </div>
 
   <div class="header-auth">
-    <a class="cart-button" routerLink="/cart" routerLinkActive="header-link_active">
-      <button mat-icon-button>
-        <mat-icon matBadge="{{cartCount$ | async}}" matBadgeSize="medium" matBadgeColor="accent">shopping_cart</mat-icon>
-      </button>
-    </a>
     <ng-container *ngIf="loggedIn$|async; else elseTemplate">
+      <a class="cart-button" routerLink="/cart" routerLinkActive="header-link_active">
+        <button mat-icon-button>
+          <mat-icon matBadge="{{cartCount$ | async}}" matBadgeSize="medium" matBadgeColor="accent">shopping_cart</mat-icon>
+        </button>
+      </a>
       <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Log out</a>
     </ng-container>
     <ng-template #elseTemplate>

@@ -1,0 +1,12 @@
+<h1>Shopping cart</h1>
+<div class="container centered flex">
+  <ng-container *ngIf="idsCount$|async; else elseTemplate">
+    <app-itemlist class="flex-item" [ids]="ids$ | async" (getItems)="getItems($event)" [items]="items$ | async" [total]="total$ | async"
+      (changeAmount)="changeAmount($event)" (removeItem)="removeItem($event)"></app-itemlist>
+    <app-user-info class="flex-item"></app-user-info>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <h5>Your shopping cart is empty.</h5>
+  </ng-template>
+
+</div>

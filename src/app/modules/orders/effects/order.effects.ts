@@ -8,6 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { OrderService } from 'src/app/modules/orders/services';
 import * as fromOrders from "../reducers";
 import { Order, UpdateOrder } from 'src/app/modules/orders/models';
+import { GetItems, ShopCartTypes, GetItemsSuccess, GetItemsFailure } from '../actions/cart.actions';
 
 @Injectable()
 export class OrderEffects {
@@ -100,5 +101,19 @@ export class OrderEffects {
     ))
 
 
-
+  @Effect()
+  getCartItems$: Observable<any> = this.actions$.pipe(
+    ofType<GetItems>(ShopCartTypes.Get_Items),
+    map(action => action.payload),
+    switchMap(arr => {
+      console.log(`Order Effects: getCartItems`);
+      return this.orderService.getToCart(arr).pipe(
+        map(data => {
+          console.log(data);
+          return new GetItemsSuccess(data)
+        }),
+        catchError(err => of(new GetItemsFailure(err)))
+      )
+    })
+  )
 }

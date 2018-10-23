@@ -1,0 +1,38 @@
+:host{
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    max-width: 1400px;
+    padding: 6px;
+}
+
+.flex-item{
+    margin: 5px;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+h1,h5{
+    text-align: center;
+}
+
+@media (max-width:600px){
+
+    .flex{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    h5{
+        width: 100%;
+    }
+    .flex-item{
+        width: 100%;
+        margin: 0;
+        margin-bottom: 5px;
+    }
+}

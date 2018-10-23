@@ -1,0 +1,27 @@
+<div>
+  <ng-container *ngIf="items.length===0; else elseTemplate">
+    Loading...
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="grid-container">
+      <div class="grid-item item-name">name</div>
+      <div class="grid-item">amount</div>
+      <div class="grid-item">price</div>
+      <div *ngFor="let item of items" class="grid-container grid-item grid-item-row">
+        <a [routerLink]="[ '/items', item.id ]" class="item-name">
+          <div class="item">{{item.name}}</div>
+        </a>
+
+        <div class="item">
+          <input type="number" name="amount-{{item.id}}" min="1" max="100" (change)="amountChange($event,item.id)"
+            [(ngModel)]="item.amount">
+
+        </div>
+        <div class="item">${{item.price}}</div>
+        <div (click)="remove(item.id)" class="remove">X</div>
+      </div>
+    </div>
+    <h4>total: ${{total}}</h4>
+  </ng-template>
+
+</div>
