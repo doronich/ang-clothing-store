@@ -46,7 +46,7 @@ export class ItemEffects {
     switchMap(filters => {
       return this.itemService.getBy(filters).pipe(
         map((data: ItemsResponse) => {
-          console.log("ItemEffect:search")
+          //console.log("ItemEffect:search")
           return new SearchComplete(data);
         }),
         catchError(err => of(new SearchError(err))
@@ -61,7 +61,7 @@ export class ItemEffects {
     switchMap(() => {
       return this.categoryService.getCategories().pipe(
         map(data => {
-          console.log("ItemEffect:categoires")
+          //console.log("ItemEffect:categoires")
           return new GetCatsSuccess(data);
         }),
         catchError(err => of(new GetCatsFailure(err)))
@@ -75,7 +75,7 @@ export class ItemEffects {
     switchMap(() => {
       return this.categoryService.getSubCategories().pipe(
         map(data => {
-          console.log("ItemEffect:subCategoires")
+          //console.log("ItemEffect:subCategoires")
           return new GetSubCatsSuccess(data);
         }),
         catchError(err => of(new GetSubCatsFailure(err)))

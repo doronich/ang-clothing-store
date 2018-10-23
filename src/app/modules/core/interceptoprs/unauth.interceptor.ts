@@ -13,7 +13,7 @@ export class UnauthorizeInterceptor implements HttpInterceptor {
         return next.handle(req).pipe(
             tap(null, (err: HttpErrorResponse) => {
                 if (err.status === 401 || err.status === 403) {
-                    console.log("UnauthorizeInterceptor: Unathorized")
+                    //console.log("UnauthorizeInterceptor: Unathorized")
                     this.router.navigateByUrl('/login');
                 }
                 return next.handle(req);

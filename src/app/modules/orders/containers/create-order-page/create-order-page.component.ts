@@ -18,9 +18,7 @@ export class CreateOrderPageComponent implements OnInit {
 
   constructor(private store: Store<fromCart.State>, private itemStore: Store<fromItems.State>) { }
 
-  ngOnInit() {
-    console.log(this.store)
-  }
+  ngOnInit() { }
 
   getItems(ids) {
     if (ids !== null)

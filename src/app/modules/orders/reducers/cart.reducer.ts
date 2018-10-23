@@ -21,7 +21,7 @@ function sum(arr: ItemForCart[]): number {
     arr.forEach((i) => {
         res += i.amount * i.price;
     })
-    return res;
+    return Math.round(res * 100) / 100;
 }
 
 export function reducer(state = initialState, action: ShopCartActionsUnion): State {

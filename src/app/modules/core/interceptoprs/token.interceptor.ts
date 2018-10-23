@@ -23,7 +23,7 @@ export class HttpTokenInterceptor implements HttpInterceptor {
         }
 
         const request = req.clone({ setHeaders: headersConfig });
-        console.log("HttpTokenInterceptor: inserted token")
+        //console.log("HttpTokenInterceptor: inserted token")
         return next.handle(request);
     }
 }

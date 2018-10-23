@@ -49,3 +49,12 @@ header>div{
 .cart-button{
     color: white;
 }
+
+@media (max-width:600px){
+    header{
+        font-size: 13px;
+    }
+    .header-link{
+        padding: 10px 10px;
+    }
+}

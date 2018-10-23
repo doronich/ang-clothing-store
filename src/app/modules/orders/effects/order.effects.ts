@@ -22,16 +22,16 @@ export class OrderEffects {
     withLatestFrom(this.store$),
     switchMap(([action, store]) => {
 
-      console.log(`Order Effects: getOrders`)
+      //console.log(`Order Effects: getOrders`)
       const curOrders = store.orders.orders.orders;
       if (curOrders.length > 0) {
-        console.log(curOrders);
+        //console.log(curOrders);
         return of(new GetOrdersSuccess(curOrders as Order[]));
       }
 
       return this.orderService.getAll().pipe(
         map(data => {
-          console.log(data);
+          //console.log(data);
           return new GetOrdersSuccess(data);
         }),
         catchError(err => of(new GetOrdersFailure(err)))
@@ -44,10 +44,10 @@ export class OrderEffects {
     ofType<GetOrderItems>(OrderActionsType.GetOrderItems),
     map(action => action.payload),
     switchMap(id => {
-      console.log(`Order Effects: getOrderItems`);
+      //console.log(`Order Effects: getOrderItems`);
       return this.orderService.getOrderItems(id).pipe(
         map(data => {
-          console.log(data);
+          //console.log(data);
           return new GetOrderItemsSuccess(data)
         }),
         catchError(err => of(new GetOrderItemsFailure(err)))
@@ -60,7 +60,7 @@ export class OrderEffects {
     ofType<RemoveOrder>(OrderActionsType.RemoveOrder),
     map(action => action.payload),
     mergeMap(order => {
-      console.log(`Order Effects: removeOrder`)
+      //console.log(`Order Effects: removeOrder`)
       return this.orderService.deleteOrder(order.id).pipe(
         map(() => new RemoveOrderSuccess(order)),
         catchError(() => of(new RemoveOrderFailure(order)))
@@ -73,10 +73,10 @@ export class OrderEffects {
     ofType<GetOrder>(OrderActionsType.GetOrder),
     map(action => action.payload),
     switchMap((id) => {
-      console.log(`Order Effects: getOrder`)
+      //console.log(`Order Effects: getOrder`)
       return this.orderService.getOrder(id).pipe(
         map(data => {
-          console.log(data)
+          //console.log(data)
           return new GetOrderSuccess(data);
         }),
         catchError((err) => of(new GetOrderFailure(err)))
@@ -89,7 +89,7 @@ export class OrderEffects {
     ofType<UpdOrder>(OrderActionsType.UpdOrder),
     map(act => act.payload),
     switchMap(data => {
-      console.log(`Order Effects: updOrder`)
+      //console.log(`Order Effects: updOrder`)
       return this.orderService.updateOrder(data).pipe(
         map(() => {
           return new UpdOrderSuccess(data);
@@ -106,10 +106,10 @@ export class OrderEffects {
     ofType<GetItems>(ShopCartTypes.Get_Items),
     map(action => action.payload),
     switchMap(arr => {
-      console.log(`Order Effects: getCartItems`);
+      //console.log(`Order Effects: getCartItems`);
       return this.orderService.getToCart(arr).pipe(
         map(data => {
-          console.log(data);
+          //console.log(data);
           return new GetItemsSuccess(data)
         }),
         catchError(err => of(new GetItemsFailure(err)))

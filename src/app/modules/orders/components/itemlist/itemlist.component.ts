@@ -1,24 +1,13 @@
-import { Component, OnInit, Input, EventEmitter, Output, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { ItemForCart } from 'src/app/modules/items/models';
 
-
-function sum(arr: ItemForCart[]): number {
-  let res = 0;
-  arr.forEach((i) => {
-    res += i.amount * i.price;
-  })
-  return res;
-}
 
 @Component({
   selector: 'app-itemlist',
   templateUrl: './itemlist.component.html',
   styleUrls: ['./itemlist.component.css']
 })
-export class ItemlistComponent implements OnInit, OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
+export class ItemlistComponent implements OnInit {
   @Input() ids: number[];
   @Output() changeAmount = new EventEmitter<{ id: number, value: number }>();
   @Output() getItems = new EventEmitter<number[]>();
