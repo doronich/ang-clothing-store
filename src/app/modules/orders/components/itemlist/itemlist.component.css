@@ -10,7 +10,7 @@
 }
 
 .grid-item-row{
-    grid-column: 1/ span 3;
+    grid-column: 1/ span 4;
     border: 1px solid black;
     margin-bottom: 3px;
     color: black;
@@ -39,7 +39,7 @@ input[type=number]{
     width: 40px;
 }
 
-h4{
+h3{
     margin: 5px;
     text-align: end;
 }
