@@ -8,7 +8,6 @@ export interface CreateOrder {
     comment: string;
     address: string;
     code: string;
-    status: number;
     totalPrice: number;
     items: CreateOrderItem[];
 }

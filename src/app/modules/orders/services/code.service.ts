@@ -10,11 +10,11 @@ export class CodeService {
   constructor(private apiService: ApiService) { }
 
   checkCode(code: string): Observable<boolean> {
-    console.log(`Code service: checkCode(${code})`)
+    //console.log(`Code service: checkCode(${code})`)
     return this.apiService.get(`/order/checkcode?code=${code}`)
       .pipe(
         map(data => {
-          console.log(`GET==Code serivce: code received`)
+          //console.log(`GET==Code serivce: code received`)
           return data;
         })
       )

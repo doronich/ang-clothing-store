@@ -1,3 +1,57 @@
-<p>
-  user-info works!
-</p>
+<ng-container *ngIf="userLoading; else elseTemplate">
+  Loading...
+</ng-container>
+<ng-template #elseTemplate>
+  <form [formGroup]="form" (submit)="submit($event)">
+    <div class="flex-container">
+      <div>
+        <h2>Contact details</h2>
+      </div>
+      <!--       <div class="flex-item">
+        <div>
+          <label>Username* :</label>
+          <span *ngIf="user"> {{userDetails.username}}</span>
+        </div>
+      </div> -->
+      <div class="flex-item">
+        <div>
+          <label>E-mail* :</label>
+          <span *ngIf="userDetails"> {{userDetails.email}}</span>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row-container">
+          <label for="">Name* :</label>
+          <input formControlName="name" maxlength="20" type="text" value="" required>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row-container">
+          <label for="">Phone number* :</label>
+          <input formControlName="phone" maxlength="20" type="text" value="" required>
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row-container">
+          <label for="">Address :</label>
+          <input formControlName="address" maxlength="50" type="text" value="">
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row-container">
+          <label for="">Comment to order :</label>
+          <input formControlName="comment" maxlength="250" type="text" value="">
+        </div>
+      </div>
+      <div class="flex-item">
+        <div class="row-container">
+          <label for="">Code :</label>
+          <input formControlName="code" maxlength="20" type="text" value="">
+          <button class="check-button" [ngClass]="{'valid-code': codeConfirmed}" [disabled]="codeConfirmed" (click)="check($event)">{{!codeConfirmed?"Check":"Ok"}}</button>
+        </div>
+      </div>
+      <input type="submit" value="Checkout" [disabled]="(form.invalid || checkoutLoading)">
+      <div class="error-message">{{error}}</div>
+    </div>
+  </form>
+</ng-template>

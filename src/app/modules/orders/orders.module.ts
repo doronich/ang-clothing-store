@@ -18,6 +18,7 @@ import { OrderListItemComponent } from './components/order-list-item/order-list-
 import { CreateOrderPageComponent } from './containers/create-order-page/create-order-page.component';
 import { ItemlistComponent } from './components/itemlist/itemlist.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     EffectsModule.forFeature([OrderEffects]),
     NgxDatatableModule
   ],
-  providers: [OrderService, CodeService],
+  providers: [OrderService, CodeService, UserService],
   declarations: [AllOrdersPageComponent, AllOrdersTableComponent, OrderPageComponent, OrderInfoComponent, OrderItemsListComponent, OrderListItemComponent, CreateOrderPageComponent, ItemlistComponent, UserInfoComponent]
 })
 export class OrdersModule { }

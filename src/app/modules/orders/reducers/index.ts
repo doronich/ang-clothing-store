@@ -1,11 +1,13 @@
 import * as fromOrders from './orders.reducers'
 import * as fromShopCart from './cart.reducer'
 import * as fromRoot from 'src/app/reducers'
+import * as fromUser from './user-details.reducer'
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 
 export interface OrdersState {
     orders: fromOrders.State,
     cart: fromShopCart.State
+    user: fromUser.State
 }
 
 export interface State extends fromRoot.State {
@@ -14,7 +16,8 @@ export interface State extends fromRoot.State {
 
 export const reducers: ActionReducerMap<OrdersState> = {
     orders: fromOrders.reducer,
-    cart: fromShopCart.reducer
+    cart: fromShopCart.reducer,
+    user: fromUser.reducer
 }
 
 export const selectOrdersState = createFeatureSelector<State, OrdersState>('orders');
@@ -27,6 +30,11 @@ export const selectOrdersEntitiesState = createSelector(
 export const selectShopCartEntitiesState = createSelector(
     selectOrdersState,
     (state: OrdersState) => state.cart
+)
+
+export const selectUserDetEntitiesState = createSelector(
+    selectOrdersState,
+    (state: OrdersState) => state.user
 )
 
 export const getLoading = createSelector(
@@ -60,6 +68,9 @@ export const getError = createSelector(
 )
 
 
+
+
+
 export const getItems = createSelector(
     selectShopCartEntitiesState,
     fromShopCart.getItems
@@ -78,4 +89,33 @@ export const getCartLoading = createSelector(
 export const getCartTotal = createSelector(
     selectShopCartEntitiesState,
     fromShopCart.getTotal
+)
+
+
+
+
+
+export const getUserLoading = createSelector(
+    selectUserDetEntitiesState,
+    fromUser.getUserLoading
+)
+
+export const getUserInfo = createSelector(
+    selectUserDetEntitiesState,
+    fromUser.getUserInfo
+)
+
+export const getUserError = createSelector(
+    selectUserDetEntitiesState,
+    fromUser.getError
+)
+
+export const getCodeIsValid = createSelector(
+    selectUserDetEntitiesState,
+    fromUser.getCodeIsValid
+)
+
+export const getCheckOutLoading = createSelector(
+    selectUserDetEntitiesState,
+    fromUser.getCheckOutLoading
 )

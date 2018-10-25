@@ -1,20 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
-import { map, catchError, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { map, catchError, mergeMap, withLatestFrom, tap } from 'rxjs/operators';
 import { Action, Store } from '@ngrx/store';
 import { OrderActionsType, GetOrdersFailure, GetOrdersSuccess, GetOrders, RemoveOrder, RemoveOrderSuccess, RemoveOrderFailure, GetOrder, GetOrderSuccess, GetOrderFailure, GetOrderItems, GetOrderItemsSuccess, GetOrderItemsFailure, UpdOrder, UpdOrderSuccess, UpdOrderFailure } from '../actions/order.actions';
 import { switchMap } from 'rxjs/operators';
-import { OrderService } from 'src/app/modules/orders/services';
+import { OrderService, CodeService } from 'src/app/modules/orders/services';
 import * as fromOrders from "../reducers";
-import { Order, UpdateOrder } from 'src/app/modules/orders/models';
+import * as fromItems from "../../items/reducers"
+import { Order, UpdateOrder, CreateOrder } from 'src/app/modules/orders/models';
 import { GetItems, ShopCartTypes, GetItemsSuccess, GetItemsFailure } from '../actions/cart.actions';
+import { GetUserInfo, UserDetTypes, GetUserInfoSuccess, GetUserInfoFailure, CheckCode, CheckCodeSuccess, CheckCodeFailure, CreateOrderReq, CreateOrderSuccess, CreateOrderFailure } from '../actions';
+import { UserService } from '../services/user.service';
+import { AuthService, TokenService } from '../../auth/services';
+import { User } from '../../auth/models/user';
+import { Router } from '@angular/router';
+import { ClearCart } from '../../items/actions';
 
 @Injectable()
 export class OrderEffects {
 
 
-  constructor(private actions$: Actions, private orderService: OrderService, private store$: Store<fromOrders.State>) { }
+  constructor(private actions$: Actions,
+    private orderService: OrderService,
+    private store$: Store<fromOrders.State>,
+    private itemStore$: Store<fromItems.State>,
+    private userService: UserService,
+    private tokenService: TokenService,
+    private codeService: CodeService,
+    private router: Router) { }
 
   @Effect()
   getOrders$: Observable<Action> = this.actions$.pipe(
@@ -116,4 +130,57 @@ export class OrderEffects {
       )
     })
   )
+
+  @Effect()
+  getUserInfo$: Observable<any> = this.actions$.pipe(
+    ofType<GetUserInfo>(UserDetTypes.Get_User_Info),
+    map(action => action.payload),
+    switchMap(userInfo => {
+      const user = this.tokenService.getUser() as User;
+      return this.userService.getUserInfo(user.username).pipe(
+        map(data => {
+          return new GetUserInfoSuccess(data);
+        }),
+        catchError(err => of(new GetUserInfoFailure(err)))
+      )
+    })
+  )
+
+  @Effect()
+  checkCode$: Observable<any> = this.actions$.pipe(
+    ofType<CheckCode>(UserDetTypes.CheckCode),
+    map(action => action.payload),
+    switchMap((code: string) => {
+      return this.codeService.checkCode(code).pipe(
+        map(data => {
+          return new CheckCodeSuccess(data);
+        }),
+        catchError(err => of(new CheckCodeFailure(err)))
+      )
+    })
+  )
+
+  @Effect()
+  checkout$: Observable<any> = this.actions$.pipe(
+    ofType<CreateOrderReq>(UserDetTypes.CreateOrder),
+    map(action => action.payload),
+    switchMap((order: CreateOrder) => {
+      return this.orderService.createOrder(order).pipe(
+        map(data => {
+
+          return new CreateOrderSuccess()
+        }),
+        catchError(err => of(new CreateOrderFailure(err)))
+      )
+    })
+  )
+
+  @Effect({ dispatch: false })
+  checkoutSuccess$: Observable<any> = this.actions$.pipe(
+    ofType(UserDetTypes.CreateOrderSuccess),
+    tap(() => {
+      this.router.navigate(['/'])
+      this.itemStore$.dispatch(new ClearCart())
+    })
+  );
 }

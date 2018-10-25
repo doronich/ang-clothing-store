@@ -1,0 +1,90 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-item{
+    border: 1px solid black;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.flex-item>*{
+    width: 100%;
+}
+
+h2{
+    margin: 0;
+    text-align: center;
+}
+
+input[type=text]{
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    height: 28px;
+    border:1px solid transparent;
+    width: auto;
+    font-size: inherit;
+    align-self: stretch;
+    border-bottom: 1px solid black;
+}
+
+input[disabled]{
+    background-color: rgb(235, 235, 235);
+}
+
+/* input[type=text]:hover{
+    border-bottom: 1px solid black;
+} */
+
+.row-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.check-button{
+    border:1px solid black;
+    color: white;
+    cursor: pointer;
+    background-color: black;
+}
+.valid-code{
+    background-color: rgb(186, 240, 200);
+    border: 1px solid black;
+    color: black;
+}
+
+.error-message{
+    color: rgb(195, 35, 35);
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+input[type=submit]{
+    width: 30%;
+    color: white;
+    background-color: black;
+    border:1px solid black;
+    padding: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: rgb(243, 188, 61);
+    color:black;
+    transition: all .3s;
+}
+input[type="submit"]:disabled{
+    background-color: #ccc;
+    cursor: default;
+}
+
+
+@media (max-width:600px){
+    input[type=submit]{
+        width: 100%;
+    }
+}

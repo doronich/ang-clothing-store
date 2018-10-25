@@ -3,7 +3,9 @@
   <ng-container *ngIf="idsCount$|async; else elseTemplate">
     <app-itemlist class="flex-item" [ids]="ids$ | async" (getItems)="getItems($event)" [items]="items$ | async" [total]="total$ | async"
       (changeAmount)="changeAmount($event)" (removeItem)="removeItem($event)"></app-itemlist>
-    <app-user-info class="flex-item"></app-user-info>
+    <app-user-info class="flex-item" [userLoading]="userLoading$ | async" [items]="items$ | async" [error]="userError$ | async"
+      [userDetails]="userDetails$ | async" [codeConfirmed]="codeIsValid$ | async" (checkCode)="checkCode($event)"
+      [total]="total$ | async" (createOrder)="createOrder($event)" [checkoutLoading]="checkoutLoading$ | async" [user]="user$ | async"></app-user-info>
   </ng-container>
   <ng-template #elseTemplate>
     <h5>Your shopping cart is empty.</h5>
