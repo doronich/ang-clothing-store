@@ -1,6 +1,6 @@
 <header>
   <div class="header-title">
-    <a routerLink="/" class="header-link">Title</a>
+    <a routerLink="/" class="header-link">STORE</a>
   </div>
   <div class="header-menu">
     <a routerLink="/orders" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">Orders</a>

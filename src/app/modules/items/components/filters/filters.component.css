@@ -28,3 +28,9 @@
     width: 50%;
     padding: 0 5px;
 }
+
+@media(max-width:600px){
+    .filters-container{
+        width: 100%;
+    }
+}

@@ -16,6 +16,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { ItemEffects } from './effects/item.effects';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { CategoryService } from './services/category.service';
+import { ItemPageComponent } from './containers/item-page/item-page.component';
+import { CurrentItemComponent } from './components/current-item/current-item.component';
+import { SlideshowModule } from 'ng-simple-slideshow'
 
 @NgModule({
   imports: [
@@ -24,9 +27,10 @@ import { CategoryService } from './services/category.service';
     ItemsRoutingModule,
     MaterialModule,
     StoreModule.forFeature('items', reducers),
-    EffectsModule.forFeature([ItemEffects])
+    EffectsModule.forFeature([ItemEffects]),
+    SlideshowModule
   ],
-  declarations: [ItemsPageComponent, FiltersComponent, ItemsComponent, ItemComponent, FavItemComponent, PaginationComponent],
+  declarations: [ItemsPageComponent, FiltersComponent, ItemsComponent, ItemComponent, FavItemComponent, PaginationComponent, ItemPageComponent, CurrentItemComponent],
   providers: [ItemService, CategoryService]
 })
 export class ItemsModule { }

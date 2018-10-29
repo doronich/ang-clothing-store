@@ -1,5 +1,6 @@
 import { ItemActionsUnion, ItemActionTypes } from "../actions";
 import { Item, PageData } from "../models";
+import { CurrentItem } from "../models/current-item";
 
 /* export interface State extends EntityState<Item>{
     
@@ -10,6 +11,7 @@ export interface State {
     items: Item[];
     isLoading: boolean;
     error: string | null;
+    item: CurrentItem
 }
 
 const initialState: State = {
@@ -22,7 +24,8 @@ const initialState: State = {
     },
     items: [],
     error: null,
-    isLoading: false
+    isLoading: false,
+    item: null
 }
 
 export function reducer(state = initialState, action: ItemActionsUnion): State {
@@ -75,6 +78,28 @@ export function reducer(state = initialState, action: ItemActionsUnion): State {
                 })
             }
         }
+        case ItemActionTypes.GetItem: {
+            return {
+                ...state,
+                error: null,
+                isLoading: true,
+                item: null
+            }
+        }
+        case ItemActionTypes.GetItemSuccess: {
+            return {
+                ...state,
+                isLoading: false,
+                item: action.payload
+            }
+        }
+        case ItemActionTypes.GetItemFailure: {
+            return {
+                ...state,
+                isLoading: false,
+                error: "This item not found."
+            }
+        }
         default:
             return state;
     }
@@ -84,3 +109,4 @@ export const getItems = (state: State) => state.items;
 export const getError = (state: State) => state.error;
 export const getLoading = (state: State) => state.isLoading;
 export const getPageData = (state: State) => state.data;
+export const getItem = (state: State) => state.item;

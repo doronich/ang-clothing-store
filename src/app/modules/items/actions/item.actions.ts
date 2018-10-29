@@ -1,6 +1,7 @@
 import { Action } from "@ngrx/store";
 import { Filters } from "../models";
 import { ItemsResponse } from "../models/items-response";
+import { CurrentItem } from "../models/current-item";
 
 export enum ItemActionTypes {
     Search = '[Item] Search',
@@ -10,7 +11,10 @@ export enum ItemActionTypes {
     AddFavResp = "[Fav] Add Response",
     RemoveFav = "[Fav] Remove",
     RemoveFavResp = "[Fav] Remove Response",
-    GetFavs = "[Fav] Get"
+    GetFavs = "[Fav] Get",
+    GetItem = "[Item] Get item",
+    GetItemSuccess = "[Item] Get item success",
+    GetItemFailure = "[Item] Get item failure"
 }
 
 export class Search implements Action {
@@ -53,6 +57,22 @@ export class GetFavs implements Action {
     readonly type = ItemActionTypes.GetFavs
 }
 
+export class GetItem implements Action {
+    readonly type = ItemActionTypes.GetItem
+    constructor(public payload: number) { }
+}
+
+export class GetItemSuccess implements Action {
+    readonly type = ItemActionTypes.GetItemSuccess
+    constructor(public payload: CurrentItem) { }
+}
+
+export class GetItemFailure implements Action {
+    readonly type = ItemActionTypes.GetItemFailure
+    constructor(public payload: any) { }
+}
+
+
 export type ItemActionsUnion =
     | Search
     | SearchComplete
@@ -61,5 +81,8 @@ export type ItemActionsUnion =
     | AddFavItemResp
     | RemoveFavItem
     | RemoveFavItemResp
-    | GetFavs;
+    | GetFavs
+    | GetItemFailure
+    | GetItemSuccess
+    | GetItem;
 

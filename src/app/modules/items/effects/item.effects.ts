@@ -8,6 +8,7 @@ import {
   skip,
   switchMap,
   takeUntil,
+  tap,
 } from 'rxjs/operators';
 import { Observable, asyncScheduler, of } from 'rxjs';
 import {
@@ -25,18 +26,30 @@ import {
   AddFavItem,
   RemoveFavItem,
   RemoveFavItemResp,
-  AddFavItemResp
+  AddFavItemResp,
+  GetItem,
+  GetItemSuccess,
+  GetItemFailure,
+  AddCartItem,
+  CartTypes,
+  RemoveCartItem
 } from '../actions';
 import { Action } from '@ngrx/store';
 import { ItemsResponse } from '../models/items-response';
 import { CategoryService } from '../services/category.service';
 import { TokenService } from '../../auth/services';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class ItemEffects {
 
-  constructor(private actions$: Actions, private itemService: ItemService, private categoryService: CategoryService, private tokenService: TokenService) { }
+  constructor(private actions$: Actions,
+    private itemService: ItemService,
+    private categoryService: CategoryService,
+    private tokenService: TokenService,
+    private router: Router,
+  ) { }
 
   @Effect()
   search$ = ({ debounce = 300, scheduler = asyncScheduler } = {}): Observable<Action> => this.actions$.pipe(
@@ -108,6 +121,40 @@ export class ItemEffects {
           return new RemoveFavItemResp();
         })
       )
+    })
+  )
+
+  @Effect()
+  getItem$: Observable<any> = this.actions$.pipe(
+    ofType<GetItem>(ItemActionTypes.GetItem),
+    map(action => action.payload),
+    switchMap((id: number) => {
+      return this.itemService.getItem(id).pipe(
+        map(data => {
+          return new GetItemSuccess(data)
+        }),
+        catchError(err => of(new GetItemFailure(err)))
+      )
+    })
+  )
+
+  @Effect({ dispatch: false })
+  addCartItem$: Observable<any> = this.actions$.pipe(
+    ofType<AddCartItem>(CartTypes.Add),
+    tap(() => {
+      if (!this.tokenService.getToken()) {
+        this.router.navigate(['/login'])
+      }
+    })
+  )
+
+  @Effect({ dispatch: false })
+  removCartItem$: Observable<any> = this.actions$.pipe(
+    ofType<RemoveCartItem>(CartTypes.Remove),
+    tap(() => {
+      if (!this.tokenService.getToken()) {
+        this.router.navigate(['/login'])
+      }
     })
   )
 

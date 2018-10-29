@@ -1,0 +1,2 @@
+<app-current-item class="centered container" [id]="id" [loading]="isLoading$ | async" [item]="item$ | async" [error]="error$ | async"
+  (remove)="removeFromCart($event)" (add)="addToCart($event)" [inCart]="checkForCart(id,cartItems$ | async)"></app-current-item>

@@ -5,6 +5,7 @@ import { HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ItemsResponse } from '../models/items-response';
+import { CurrentItem } from '../models/current-item';
 
 
 @Injectable()
@@ -23,6 +24,16 @@ export class ItemService {
     return this.apiServcie.get(`/item/q`, params).pipe(
       map(data => {
         return data as ItemsResponse;
+      })
+    )
+  }
+
+  getItem(id: number): Observable<CurrentItem> {
+    return this.apiServcie.get(`/item/${id}`).pipe(
+      map(data => {
+        const result = data as CurrentItem;
+        console.log(result);
+        return result;
       })
     )
   }

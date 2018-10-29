@@ -53,7 +53,7 @@ export function reducer(state = initialState, action: UserDetActionsUnion): Stat
             return {
                 ...state,
                 codeIsValid: action.payload,
-                error: action.payload ? null : "Code isn't valid."
+                error: action.payload ? null : "Code is invalid."
             }
         }
         case UserDetTypes.CheckCodeFailure: {

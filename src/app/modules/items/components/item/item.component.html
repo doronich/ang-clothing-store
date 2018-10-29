@@ -28,17 +28,18 @@
           <mat-icon>favorite_border</mat-icon>
         </button>
       </ng-template>
-
-      <ng-container *ngIf=" inCart; else elseCart">
-        <button mat-icon-button color="accent" (click)="removeFromCart.emit(item.id)">
-          <mat-icon>remove_shopping_cart</mat-icon>
-        </button>
+      <ng-container *ngIf="item.active">
+        <ng-container *ngIf=" inCart; else elseCart">
+          <button mat-icon-button color="accent" (click)="removeFromCart.emit(item.id)">
+            <mat-icon>remove_shopping_cart</mat-icon>
+          </button>
+        </ng-container>
+        <ng-template #elseCart>
+          <button mat-icon-button color="desabled" (click)="addToCart.emit(item.id)">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </ng-template>
       </ng-container>
-      <ng-template #elseCart>
-        <button mat-icon-button color="desabled" (click)="addToCart.emit(item.id)">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
-      </ng-template>
     </div>
   </div>
 

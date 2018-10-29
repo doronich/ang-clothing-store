@@ -41,6 +41,11 @@ export const getItems = createSelector(
     fromItems.getItems
 )
 
+export const getItem = createSelector(
+    selectItemEntityState,
+    fromItems.getItem
+)
+
 export const getLoading = createSelector(
     selectItemEntityState,
     fromItems.getLoading

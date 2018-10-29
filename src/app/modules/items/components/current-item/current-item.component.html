@@ -1,0 +1,31 @@
+<ng-container *ngIf="loading; else elseTemplate">
+  Loading...
+</ng-container>
+<ng-template #elseTemplate>
+  <ng-container *ngIf="item; else elsetemp">
+    <div class="item-container">
+      <div class="images">
+        <slideshow #slideshow [imageUrls]="images" [backgroundSize]="'100% auto'" [showArrows]="images.length>1"></slideshow>
+      </div>
+      <div class="info">
+        <h3>{{item.name}}</h3>
+        <h6 *ngIf="!item.active">Item not availabel</h6>
+        <h4>Brand: {{item.brand}}</h4>
+        <h4>Color: {{item.color}}</h4>
+        <h4>Size: {{item.size}}</h4>
+        <h2>Prise: ${{item.price}}</h2>
+        <ng-container *ngIf="inCart; else elseTemplate">
+          <button (click)="remove.emit()" [disabled]="!item.active">Remove from cart</button>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <button (click)="add.emit()" [disabled]="!item.active">Add to cart</button>
+        </ng-template>
+        <h4>Description: <h5>{{item.description}}</h5>
+        </h4>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #elsetemp>
+    <div class="error">{{error}}</div>
+  </ng-template>
+</ng-template>
