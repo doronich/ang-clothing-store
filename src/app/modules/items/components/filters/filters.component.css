@@ -33,4 +33,8 @@
     .filters-container{
         width: 100%;
     }
+
+    :host{
+        border: none;
+    }
 }

@@ -13,22 +13,23 @@ export class FiltersComponent implements OnInit {
   @Input() categories: Category[];
   @Input() loading;
   @Input() subCategories: SubCategory[];
+  @Input() filters: Filters;
   currentSubs: SubCategory[];
   form: FormGroup;
   pageSizeChanged: boolean = false;
-  readonly pageSize: number = 5;
+  @Input() pageSize: number;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      name: new FormControl(''),
+      name: new FormControl(this.filters.name || ''),
       pageSize: new FormControl(this.pageSize),
-      category: new FormControl(),
-      subCategory: new FormControl(),
-      gender: new FormControl('male'),
-      maxPrice: new FormControl(1000),
-      minPrice: new FormControl(0)
+      category: new FormControl(this.filters.kind),
+      subCategory: new FormControl(this.filters.subkind),
+      gender: new FormControl(this.filters.sex || 'male'),
+      maxPrice: new FormControl(this.filters.endPrice || 1000),
+      minPrice: new FormControl(this.filters.startPrice || 0)
     })
     this.search.emit({ pageSize: this.pageSize } as Filters);
   }
@@ -43,10 +44,12 @@ export class FiltersComponent implements OnInit {
       startPrice: this.form.value.minPrice,
       endPrice: this.form.value.maxPrice
     } as Filters;
-    if (this.pageSizeChanged) {
-      filters.pageIndex = 1;
-      this.pageSizeChanged = false;
-    }
+    filters.pageIndex = 1;
+    /*     if (this.pageSizeChanged) {
+          filters.pageIndex = 1;
+          this.pageSizeChanged = false;
+        } */
+    console.log(filters)
     this.search.emit(filters);
   }
 

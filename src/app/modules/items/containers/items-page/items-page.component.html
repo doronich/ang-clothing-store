@@ -1,6 +1,7 @@
 <div class="items-container">
   <div class="flex">
-    <app-filters (search)="search($event)" [categories]="categories$ | async" [loading]="catsLoading$" [subCategories]="subCategories$ | async">
+    <app-filters (search)="search($event)" [categories]="categories$ | async" [loading]="catsLoading$" [pageSize]="filters.pageSize"
+      [subCategories]="subCategories$ | async" [filters]="filters">
     </app-filters>
     <app-items (removeFav)="removeFav($event)" (addFav)="addFav($event)" (addToCart)="addToCart($event)"
       (removeFromCart)="removeFromCart($event)" [isLoggedIn]="isLoggedIn$ | async" [cartItems]="cartItems$ | async"

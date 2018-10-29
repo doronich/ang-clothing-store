@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import * as ItemActions from '../../actions'
 
 import { GetCats, GetSubCats } from '../../actions';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -31,15 +32,21 @@ export class ItemsPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const page = +params['pageIndex'];
+      const pageSize = +params['pageSize'];
+      this.filters = { ...this.filters, ...params }
+    })
     this.store.dispatch(new GetCats())
     this.store.dispatch(new GetSubCats())
   }
 
-  constructor(private store: Store<fromItems.State>, private authStore: Store<fromAuth.State>) { }
+  constructor(private store: Store<fromItems.State>, private authStore: Store<fromAuth.State>, private route: ActivatedRoute, private router: Router) { }
 
   search(filters: Filters) {
     this.filters = { ...this.filters, ...filters };
     this.store.dispatch(new ItemActions.Search(this.filters));
+    this.router.navigate(['/items'], { queryParams: { pageIndex: this.filters.pageIndex, ...this.filters } })
   }
 
   addToCart(id: number) {
