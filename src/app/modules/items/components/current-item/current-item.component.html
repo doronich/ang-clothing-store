@@ -5,7 +5,7 @@
   <ng-container *ngIf="item; else elsetemp">
     <div class="item-container">
       <div class="images">
-        <slideshow #slideshow [imageUrls]="images" [backgroundSize]="'100% auto'" [showArrows]="images.length>1"></slideshow>
+        <slideshow #slideshow [imageUrls]="images" [backgroundSize]="'contain'" [showArrows]="images.length>1"></slideshow>
       </div>
       <div class="info">
         <h3>{{item.name}}</h3>

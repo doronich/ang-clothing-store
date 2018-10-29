@@ -18,6 +18,7 @@ export class CurrentItemComponent implements OnInit, OnChanges {
   @Output() add = new EventEmitter();
   @Output() remove = new EventEmitter();
   images = [];
+
   constructor() { }
 
   ngOnInit() {
