@@ -1,0 +1,59 @@
+:host{
+    width: 100%;
+}
+
+h1{
+    font-size: 3rem;
+    margin: .8rem 0;
+    text-align: center;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    width:50%;
+}
+
+.info{
+    margin-right: 3px;
+}
+
+.pass{
+    margin-left: 3px;
+}
+
+.orders{
+    width: 100%;
+}
+
+.item, .orders{
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+@media (max-width:600px){
+    h1{
+        font-size: 2rem;
+    }
+
+    .pass,.info{
+        margin: 5px 0 0;
+    }
+
+    .profile{
+        flex-direction: column;
+    }
+
+    .item{
+        width:100%;
+    }
+}

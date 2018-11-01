@@ -37,4 +37,8 @@
     :host{
         border: none;
     }
+
+    .filter-item{
+        padding: 0 15px;
+    }
 }

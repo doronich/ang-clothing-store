@@ -14,6 +14,11 @@
           <mat-icon matBadge="{{cartCount$ | async}}" matBadgeSize="medium" matBadgeColor="accent">shopping_cart</mat-icon>
         </button>
       </a>
+      <a routerLink="/profile" class="profile" routerLinkActive="header-link_active">
+        <button mat-icon-button>
+          <mat-icon>person</mat-icon>
+        </button>
+      </a>
       <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Log out</a>
     </ng-container>
     <ng-template #elseTemplate>

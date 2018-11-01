@@ -12,7 +12,7 @@ export class UserService {
   getUserInfo(username: string): Observable<UserInfo> {
     return this.apiService.get(`/user/user?username=${username}`).pipe(
       map(data => {
-        console.log("user-info", data);
+        //console.log("user-info", data);
         return data;
       })
     )

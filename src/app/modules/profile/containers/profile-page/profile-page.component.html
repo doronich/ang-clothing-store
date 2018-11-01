@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Profile</h1>
+  <div class="flex">
+    <div class="profile">
+      <app-profile-data class="item info" [userData]="userData" [user]="user" (changeUser)="changeUserData($event)"
+        [error]="userMessage"></app-profile-data>
+      <app-profile-password class="item pass" (changePassword)="changePassword($event)" [message]="passwordMessage"></app-profile-password>
+    </div>
+    <div class="orders">
+      <app-profile-orders [orders]="orders"></app-profile-orders>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,9 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+h3{
+    text-align: center;
+}
 
 @media (max-width:600px){
 

@@ -1,0 +1,68 @@
+.user-data-container{
+    padding: 10px;
+}
+
+.user-data-container>div{
+    margin: 5px 0 0;
+    padding: 5px 20px;
+    border: 1px solid black;
+}
+
+.field{
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    height: 28px;
+    border:1px solid transparent;
+    width: auto;
+    font-size: inherit;
+    align-self: stretch;
+    border-bottom: 1px solid black;
+}
+
+.field:read-only{
+    border: none;
+}
+
+h3{
+    text-align: center;
+    margin: 10px 0;
+}
+
+h6{
+    margin: 5px;
+    text-align: center;
+}
+
+label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+input[type=submit]{
+    margin-top: 5px;
+    width: 30%;
+    color: white;
+    background-color: black;
+    border:1px solid black;
+    padding: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: #FFD740;
+    color:black;
+    transition: all .3s;
+}
+input[type="submit"]:disabled{
+    background-color: #ccc;
+    cursor: default;
+}
+
+
+@media (max-width:600px){
+    input[type=submit]{
+        width: 100%;
+    }
+}

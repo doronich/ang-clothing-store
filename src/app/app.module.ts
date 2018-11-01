@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
 import { OrdersModule } from './modules/orders/orders.module';
 import { ItemsModule } from './modules/items/items.module';
 import { MaterialModule } from './modules/material';
+import { ProfileModule } from './modules/profile/profile.module';
 
 @NgModule({
   declarations: [
@@ -35,12 +36,13 @@ import { MaterialModule } from './modules/material';
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     SharedModule,
     AuthModule,
     OrdersModule,
     MaterialModule,
     ItemsModule,
+    ProfileModule,
+    AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
 
     StoreRouterConnectingModule.forRoot({

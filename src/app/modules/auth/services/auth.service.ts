@@ -37,7 +37,7 @@ export class AuthService {
   public checkUser(body: CheckUserModel): Observable<boolean> {
     return this.apiService.post('/check', body).pipe(
       map(data => {
-        console.log(`AuthService: CheckUser>`, data);
+        //console.log(`AuthService: CheckUser>`, data);
         return data;
       })
     )
@@ -52,7 +52,7 @@ export class AuthService {
 
   private tokenLogHelper(methodName: string, data: string): string {
     const user = JSON.parse(data);
-    console.log(`AuthService: ${methodName}>resp>data:`, user)
+    //console.log(`AuthService: ${methodName}>resp>data:`, user)
     this.tokenService.saveToken(data)
     return data;
   }

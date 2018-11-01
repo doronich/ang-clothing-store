@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
-import { map, catchError, mergeMap, withLatestFrom, tap } from 'rxjs/operators';
+import { map, catchError, mergeMap, withLatestFrom, tap, delay } from 'rxjs/operators';
 import { Action, Store } from '@ngrx/store';
 import { OrderActionsType, GetOrdersFailure, GetOrdersSuccess, GetOrders, RemoveOrder, RemoveOrderSuccess, RemoveOrderFailure, GetOrder, GetOrderSuccess, GetOrderFailure, GetOrderItems, GetOrderItemsSuccess, GetOrderItemsFailure, UpdOrder, UpdOrderSuccess, UpdOrderFailure } from '../actions/order.actions';
 import { switchMap } from 'rxjs/operators';
@@ -178,8 +178,9 @@ export class OrderEffects {
   @Effect({ dispatch: false })
   checkoutSuccess$: Observable<any> = this.actions$.pipe(
     ofType(UserDetTypes.CreateOrderSuccess),
+    delay(1000),
     tap(() => {
-      this.router.navigate(['/'])
+      this.router.navigate(['/profile'])
       this.itemStore$.dispatch(new ClearCart())
     })
   );

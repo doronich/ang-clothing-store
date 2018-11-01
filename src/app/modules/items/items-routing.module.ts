@@ -11,9 +11,6 @@ const routes: Routes = [
   {
     path: 'items/:id',
     component: ItemPageComponent
-  },
-  {
-    path: '**', redirectTo: ''
   }
 ];
 

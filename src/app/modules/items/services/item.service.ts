@@ -32,7 +32,7 @@ export class ItemService {
     return this.apiServcie.get(`/item/${id}`).pipe(
       map(data => {
         const result = data as CurrentItem;
-        console.log(result);
+        //console.log(result);
         return result;
       })
     )

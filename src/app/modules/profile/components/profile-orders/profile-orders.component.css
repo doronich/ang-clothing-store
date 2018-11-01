@@ -1,0 +1,7 @@
+.orders-container{
+    padding: 10px;
+}
+
+:host *{
+    box-shadow: none;
+}
