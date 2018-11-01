@@ -1,7 +1,7 @@
 import { Order, OrderItem } from "../models";
 import { OrderActionsUnion, OrderActionsType } from "../actions/order.actions";
 import { utc, } from "moment";
-import { statusHelper } from "../helpers/";
+import { statusHelper } from "../helpers";
 
 export interface State {
     isLoading: boolean;
