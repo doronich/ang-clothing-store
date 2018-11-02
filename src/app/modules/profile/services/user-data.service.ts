@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/services';
 import { Observable } from 'rxjs';
-import { UserInfo } from '../../orders/models';
+import { UserInfo } from 'src/app/modules/admin/modules/orders/models';
 import { map } from 'rxjs/operators';
 import { ChangePasswordModel, UserOrder } from '../models';
 

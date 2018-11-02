@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { UserInfo } from 'src/app/modules/orders/models';
+import { UserInfo } from 'src/app/modules/admin/modules/orders/models';
 import { User } from 'src/app/modules/auth/models/user';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 

@@ -21,14 +21,14 @@
     </div>
 
     <div class="filter-item">
-      <mat-form-field>
+      <mat-form-field color="accent">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" type="text" placeholder="Example: nike">
       </mat-form-field>
     </div>
 
     <div class="filter-item" *ngIf="!loading">
-      <mat-form-field>
+      <mat-form-field color="accent">
         <mat-select formControlName="category" placeholder="Category" (selectionChange)="selectCategory($event)">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</mat-option>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="filter-item" *ngIf="!loading">
-      <mat-form-field>
+      <mat-form-field color="accent">
         <mat-select formControlName="subCategory" placeholder="Subcategory">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let sub of currentSubs" value="{{sub.id}}">{{sub.name}}</mat-option>
@@ -47,7 +47,7 @@
 
     <div class="filter-item">
       <div>
-        <mat-form-field class="price-item">
+        <mat-form-field color="accent" class="price-item">
           <mat-label>Min price</mat-label>
           <input formControlName="minPrice" matInput type="number" min="0" step="5">
         </mat-form-field>
@@ -59,8 +59,8 @@
     </div>
 
     <div class="filter-item">
-      <button mat-flat-button color="primary" type="submit">Apply</button>
-      <button mat-flat-button color="accent" (click)="clear($event)">Reset</button>
+      <button mat-flat-button color="accent" type="submit">Apply</button>
+      <button mat-raised-button (click)="clear($event)">Reset</button>
     </div>
 
   </form>

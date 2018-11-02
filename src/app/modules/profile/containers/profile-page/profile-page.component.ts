@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../../services';
 import { TokenService } from 'src/app/modules/auth/services';
 import { User } from 'src/app/modules/auth/models/user';
-import { UserInfo } from 'src/app/modules/orders/models';
+import { UserInfo } from 'src/app/modules/admin/modules/orders/models';
 import { tap, catchError, delay } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { ChangePasswordModel } from '../../models';

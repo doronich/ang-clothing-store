@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Order, UpdateOrder } from 'src/app/modules/orders/models';
+import { Order, UpdateOrder } from '../../models';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({

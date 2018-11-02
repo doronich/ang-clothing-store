@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { ItemForCart } from "../../items/models";
+import { ItemForCart } from "src/app/modules/items/models";
 
 export enum ShopCartTypes {
     Get_Items = "[ShopCart] Get Items",

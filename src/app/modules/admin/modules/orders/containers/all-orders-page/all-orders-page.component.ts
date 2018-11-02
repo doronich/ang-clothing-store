@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import * as fromOrders from "../../reducers";
 import * as OrderActions from '../../actions/order.actions'
-import { Order } from 'src/app/modules/orders/models';
+import { Order } from '../../models';
 
 @Component({
   selector: 'app-all-orders-page',

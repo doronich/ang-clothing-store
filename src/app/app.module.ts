@@ -20,10 +20,10 @@ import {
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
-import { OrdersModule } from './modules/orders/orders.module';
 import { ItemsModule } from './modules/items/items.module';
 import { MaterialModule } from './modules/material';
 import { ProfileModule } from './modules/profile/profile.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -38,10 +38,10 @@ import { ProfileModule } from './modules/profile/profile.module';
     BrowserAnimationsModule,
     SharedModule,
     AuthModule,
-    OrdersModule,
     MaterialModule,
     ItemsModule,
     ProfileModule,
+    AdminModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
 

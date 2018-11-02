@@ -1,4 +1,4 @@
-import { ItemForCart } from "../../items/models";
+import { ItemForCart } from "../../../../items/models";
 import { ShopCartActionsUnion, ShopCartTypes } from "../actions/cart.actions";
 
 

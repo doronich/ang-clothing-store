@@ -5,17 +5,17 @@ import { map, catchError, mergeMap, withLatestFrom, tap, delay } from 'rxjs/oper
 import { Action, Store } from '@ngrx/store';
 import { OrderActionsType, GetOrdersFailure, GetOrdersSuccess, GetOrders, RemoveOrder, RemoveOrderSuccess, RemoveOrderFailure, GetOrder, GetOrderSuccess, GetOrderFailure, GetOrderItems, GetOrderItemsSuccess, GetOrderItemsFailure, UpdOrder, UpdOrderSuccess, UpdOrderFailure } from '../actions/order.actions';
 import { switchMap } from 'rxjs/operators';
-import { OrderService, CodeService } from 'src/app/modules/orders/services';
+import { OrderService, CodeService } from '../services';
 import * as fromOrders from "../reducers";
-import * as fromItems from "../../items/reducers"
-import { Order, UpdateOrder, CreateOrder } from 'src/app/modules/orders/models';
+import * as fromItems from "src/app/modules/items/reducers"
+import { Order, UpdateOrder, CreateOrder } from '../models';
 import { GetItems, ShopCartTypes, GetItemsSuccess, GetItemsFailure } from '../actions/cart.actions';
 import { GetUserInfo, UserDetTypes, GetUserInfoSuccess, GetUserInfoFailure, CheckCode, CheckCodeSuccess, CheckCodeFailure, CreateOrderReq, CreateOrderSuccess, CreateOrderFailure } from '../actions';
 import { UserService } from '../services/user.service';
-import { AuthService, TokenService } from '../../auth/services';
-import { User } from '../../auth/models/user';
+import { AuthService, TokenService } from 'src/app/modules/auth/services';
+import { User } from 'src/app/modules/auth/models/user';
 import { Router } from '@angular/router';
-import { ClearCart } from '../../items/actions';
+import { ClearCart } from 'src/app/modules/items/actions';
 
 @Injectable()
 export class OrderEffects {

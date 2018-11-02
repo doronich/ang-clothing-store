@@ -3,7 +3,7 @@
     <a routerLink="/" class="header-link">STORE</a>
   </div>
   <div class="header-menu">
-    <a routerLink="/orders" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">Orders</a>
+    <a routerLink="/admin" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">Admin</a>
     <a routerLink="/items" class="header-link" routerLinkActive="header-link_active">Items</a>
   </div>
 

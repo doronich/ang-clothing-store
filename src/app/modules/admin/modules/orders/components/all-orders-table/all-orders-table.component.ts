@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef, Output, EventEmitter } from '@angular/core';
-import { Order } from 'src/app/modules/orders/models';
+import { Order } from '../../models';
 
 @Component({
   selector: 'app-all-orders-table',

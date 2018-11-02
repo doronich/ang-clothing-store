@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { ApiService } from 'src/app/modules/core/services';
 import { Observable } from 'rxjs';
-import { Order, UpdateOrder, CreateOrder } from 'src/app/modules/orders/models';
+import { Order, UpdateOrder, CreateOrder } from 'src/app/modules/admin/modules/orders/models';
 import { OrderItem } from '../models/order-item';
-import { ItemForCart } from '../../items/models';
+import { ItemForCart } from '../../../../items/models';
 import * as qs from 'qs'
 
 @Injectable()
