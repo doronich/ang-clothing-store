@@ -1,0 +1,42 @@
+.message-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 5px;
+}
+
+.input-box{
+    height: 40px;
+    border-top: 1px solid black;
+    flex-direction: row;
+}
+
+.messages{
+    height: 280px;
+    overflow-y: scroll;
+}
+
+.name{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.message{
+    font-size: 12px;
+}
+
+.input-message{
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    height: 28px;
+    border:1px solid transparent;
+    width: 84%;
+    font-size: inherit;
+    align-self: stretch;
+    border-bottom: 1px solid black;
+}
+
+.link{
+    text-decoration: underline;
+}

@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(private store: Store<fromAuth.State>) { }
 
   ngOnInit() {
+    document.title = "STORE: registration"
     this.store.dispatch(new AuthActions.LogOut())
   }
 

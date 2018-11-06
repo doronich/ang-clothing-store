@@ -1,0 +1,96 @@
+<div class="centered container">
+  <div class="edit-container">
+    <ng-container *ngIf="isCreate; else elseTitle">
+      <h2>Create</h2>
+    </ng-container>
+    <ng-template #elseTitle>
+      <h2>Edit {{data && data.id}}</h2>
+    </ng-template>
+
+    <form [formGroup]="form" (submit)="submitItem($event)">
+
+      <div class="form-item">
+
+        <mat-form-field class="form-name" color="accent">
+          <mat-select formControlName="sex" placeholder="Gender">
+            <mat-option [value]="0">Uni</mat-option>
+            <mat-option [value]="1">Male</mat-option>
+            <mat-option [value]="2">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-slide-toggle formControlName="active">Is item active?</mat-slide-toggle>
+        <br>
+        <mat-form-field class="form-name" color="accent">
+          <mat-label>Name</mat-label>
+          <input matInput class="field" name="name" maxlength="100" type="text" formControlName="name">
+          <mat-error>
+            Name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-name" color="accent">
+          <mat-label>Color</mat-label>
+          <input matInput class="field" name="color" maxlength="100" type="text" formControlName="color">
+        </mat-form-field>
+        <mat-form-field class="form-name" color="accent">
+          <mat-label>Brand</mat-label>
+          <input matInput class="field" name="color" maxlength="100" type="text" formControlName="brand">
+        </mat-form-field>
+        <mat-form-field class="form-name" color="accent">
+          <mat-label>Size</mat-label>
+          <input matInput class="field" type="text" maxlength="100" name="size" formControlName="size">
+        </mat-form-field>
+        <mat-form-field class="form-name" color="accent">
+          <mat-label>Price</mat-label>
+          <input matInput class="field" type="number" min="0" name="price" formControlName="price">
+        </mat-form-field>
+        <mat-form-field class="form-name" color="accent">
+          <mat-label>Discount %</mat-label>
+          <input matInput class="field" type="number" min="0" max="100" name="price" formControlName="discount">
+        </mat-form-field>
+        <mat-form-field class="form-description" color="accent">
+          <mat-label>Description</mat-label>
+          <textarea matInput cols="50" rows="3" maxlength="250" formControlName="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="form-name" color="accent">
+          <mat-select formControlName="category" placeholder="Category" (selectionChange)="selectCategory($event)">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let cat of cats" [value]="cat.id">{{cat.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="form-name" color="accent">
+          <mat-select formControlName="subCategory" placeholder="Subcategory">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let sub of currentSubs" [value]="sub.id">{{sub.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div class="form-item">
+        <input type="file" (change)="encodeImageFileAsURL($event,0)" name="previewImage">
+        <input type="file" (change)="encodeImageFileAsURL($event,1)" name="image1">
+        <input type="file" (change)="encodeImageFileAsURL($event,2)" name="image2">
+        <input type="file" (change)="encodeImageFileAsURL($event,3)" name="image3">
+        <div class="image-container" *ngIf="images">
+          <div class="image-item"><img src="{{images.previewImagePath}}" alt=""></div>
+          <div class="image-item"><img src="{{images.imagePath1}}" alt=""></div>
+          <div class="image-item"><img src="{{images.imagePath2}}" alt=""></div>
+          <div class="image-item"><img src="{{images.imagePath3}}" alt=""></div>
+        </div>
+      </div>
+
+      <div class="form-item">
+        <ng-container *ngIf="isCreate; else elseButton">
+          <input type="submit" value="Create" [disabled]="form.invalid">
+        </ng-container>
+        <ng-template #elseButton>
+          <input type="submit" value="Update" [disabled]="form.invalid">
+        </ng-template>
+      </div>
+
+    </form>
+  </div>
+
+</div>

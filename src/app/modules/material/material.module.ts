@@ -9,7 +9,8 @@ import {
   MatSelectModule,
   MatRadioModule,
   MatBadgeModule,
-  MatTableModule
+  MatTableModule,
+  MatSlideToggleModule
 } from "@angular/material";
 
 @NgModule({
@@ -23,7 +24,8 @@ import {
     MatSelectModule,
     MatRadioModule,
     MatBadgeModule,
-    MatTableModule
+    MatTableModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatFormFieldModule,
@@ -34,7 +36,8 @@ import {
     MatSelectModule,
     MatRadioModule,
     MatBadgeModule,
-    MatTableModule
+    MatTableModule,
+    MatSlideToggleModule
   ],
   declarations: []
 })

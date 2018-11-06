@@ -1,0 +1,26 @@
+<div class="message-box">
+  <div class="messages">
+    <div *ngFor="let item of messages"><span class="name">{{item.username}}: </span><span class="message">{{item.message}}</span></div>
+  </div>
+  <div *ngIf="typing">
+    <span *ngFor="let user of users">{{user}} </span>
+    typing...
+  </div>
+  <form [formGroup]="form" class="input-box" (submit)="send($event)">
+    <ng-container *ngIf="loggedIn; else elseTemplate">
+
+
+      <input class="input-message" maxlength="100" type="text" formControlName="message" (keypress)="changeInput.emit($event)"
+        autocomplete="off">
+
+      <button type="submit" mat-icon-button>
+        <mat-icon>send</mat-icon>
+      </button>
+
+    </ng-container>
+    <ng-template #elseTemplate>
+      You have to <a routerLink="/login" class="link">Sign in</a>
+    </ng-template>
+  </form>
+
+</div>

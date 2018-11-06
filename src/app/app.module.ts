@@ -24,17 +24,25 @@ import { ItemsModule } from './modules/items/items.module';
 import { MaterialModule } from './modules/material';
 import { ProfileModule } from './modules/profile/profile.module';
 import { AdminModule } from './modules/admin/admin.module';
+import { ChatContainerComponent } from './modules/chat/contaners/chat-container/chat-container.component';
+import { ChatComponent } from './modules/chat/components/chat/chat.component';
+import { ChatHeaderComponent } from './modules/chat/components/chat-header/chat-header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ChatContainerComponent,
+    ChatComponent,
+    ChatHeaderComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
     AuthModule,

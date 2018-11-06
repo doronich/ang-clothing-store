@@ -35,6 +35,10 @@ h1{
     width: 100%;
 }
 
+h2{
+    text-align: center;
+}
+
 .item, .orders{
     border: 1px solid black;
     margin-top: 5px;

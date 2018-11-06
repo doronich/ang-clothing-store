@@ -1,0 +1,91 @@
+:host{
+    width: 100%;
+}
+
+.edit-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+h2{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    padding: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.form-item{
+    width: 50%;
+    padding: 0 20px;
+}
+
+.form-description{
+    width: 100%;
+}
+
+.form-name{
+    width: 50%;
+}
+
+.form-item:last-child{
+    width: 100%;
+}
+
+mat-form-field{
+    padding: 0 5px;
+}
+
+img{
+    width: 100%;
+}
+
+
+textarea{
+    max-height: 300px;
+}
+
+input[type=submit]{
+    margin-top: 5px;
+    width: 300px;
+    color: white;
+    background-color: black;
+    border:1px solid black;
+    padding: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: #FFD740;
+    color:black;
+    transition: all .3s;
+}
+input[type="submit"]:disabled{
+    background-color: white;
+    color:black;
+    cursor: default;
+}
+
+@media (max-width:900px){
+
+    form{
+        flex-direction: column;
+    }
+    .form-item{
+        width: 100%;
+    }
+
+    input[type=submit]{
+        width: 100%;
+    }
+
+    .form-name{
+        width: 100%;
+    }
+}

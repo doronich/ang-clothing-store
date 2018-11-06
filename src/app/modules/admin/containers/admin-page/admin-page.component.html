@@ -1,6 +1,8 @@
 <nav>
   <a [routerLink]="[{outlets:{admin:['orders']}}]" routerLinkActive="link_active">Orders</a>
-  <a [routerLink]="[{outlets:{admin:['items']}}]" routerLinkActive="link_active">Orders</a>
+  <a [routerLink]="[{outlets:{admin:['items']}}]" routerLinkActive="link_active">Items</a>
+  <a [routerLink]="[{outlets:{admin:['filters']}}]" routerLinkActive="link_active">Filters</a>
+  <a [routerLink]="[{outlets:{admin:['users']}}]" routerLinkActive="link_active">Users</a>
 </nav>
 
 <router-outlet name="admin"></router-outlet>

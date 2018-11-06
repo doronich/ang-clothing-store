@@ -19,6 +19,7 @@ export class AllOrdersPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.title = "STORE: orders"
     this.store.dispatch(new OrderActions.GetOrders())
   }
 

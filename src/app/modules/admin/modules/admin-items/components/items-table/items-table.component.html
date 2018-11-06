@@ -1,0 +1,41 @@
+<div class="items-box">
+  <div class="nav-box">
+    <div>Total result: {{items.length}}</div>
+    <h3 class="error">{{error}}</h3>
+    <div>Add item
+      <a [routerLink]="['add']">
+        <button mat-icon-button>
+          <mat-icon>add</mat-icon>
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="items-list">
+    <div class="item-header-row">
+      <div>Id</div>
+      <div>Name</div>
+      <div>Price</div>
+      <div>Active</div>
+      <div>Actions</div>
+    </div>
+    <ng-container *ngIf="items.length !== 0; else elseTemplate">
+      <div *ngFor="let item of items" class="item-row">
+        <div>{{item.id}}</div>
+        <div><a [routerLink]="[ '/items', item.id ]" class="link">{{item.name}}</a></div>
+        <div>${{item.price}}</div>
+        <div>{{item.active}}</div>
+        <div>
+          <a [routerLink]="['edit',item.id]">
+            <div class="item-action item-action__edit">edit</div>
+          </a>
+          <div class="item-action item-action__remove" (click)="deleteItem.emit(item.id)">delete</div>
+        </div>
+      </div>
+
+    </ng-container>
+    <ng-template #elseTemplate>
+      <h3>Items not found.</h3>
+    </ng-template>
+
+  </div>
+</div>

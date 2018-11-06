@@ -32,6 +32,7 @@ export class ItemsPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    document.title = "STORE: items"
     this.route.queryParams.subscribe(params => {
       const page = +params['pageIndex'];
       const pageSize = +params['pageSize'];

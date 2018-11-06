@@ -6,6 +6,9 @@ import { AdminPageComponent } from './containers/admin-page/admin-page.component
 import { OrderPageComponent, AllOrdersPageComponent } from './modules/orders/containers';
 import { OrdersModule } from './modules/orders/orders.module';
 import { SomeComponent } from './components/some/some.component';
+import { AdminItemsPageComponent } from './modules/admin-items/containers/admin-items-page/admin-items-page.component';
+import { CreateItemPageComponent } from './modules/admin-items/containers/create-item-page/create-item-page.component';
+import { EditItemPageComponent } from './modules/admin-items/containers/edit-item-page/edit-item-page.component';
 
 const routes: Routes = [
   {
@@ -13,11 +16,6 @@ const routes: Routes = [
     component: AdminPageComponent,
     canActivate: [AdminGuard],
     children: [
-      {
-        path: 'some',
-        component: SomeComponent,
-        outlet: 'admin'
-      },
       {
         path: "orders",
         component: AllOrdersPageComponent,
@@ -30,7 +28,22 @@ const routes: Routes = [
         canActivate: [AdminGuard],
         outlet: 'admin'
       },
-
+      {
+        path: 'items',
+        component: AdminItemsPageComponent,
+        canActivate: [AdminGuard],
+        outlet: 'admin'
+      },
+      {
+        path: 'items/add',
+        component: CreateItemPageComponent,
+        canActivate: [AdminGuard], outlet: 'admin'
+      },
+      {
+        path: 'items/edit/:id',
+        component: EditItemPageComponent,
+        canActivate: [AdminGuard], outlet: 'admin'
+      }
     ]
   }
 ]
@@ -38,7 +51,6 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    OrdersModule,
     RouterModule.forChild(routes)
   ],
   exports: [

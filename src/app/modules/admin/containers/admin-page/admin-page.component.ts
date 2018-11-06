@@ -10,6 +10,7 @@ export class AdminPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    document.title = "STORE: admin"
   }
 
 }

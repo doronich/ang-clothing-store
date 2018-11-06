@@ -21,6 +21,7 @@ export class ItemPageComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.store.dispatch(new GetItem(this.id))
+    document.title = "STORE: item " + this.id
   }
 
   ngOnChanges(changes: SimpleChanges): void {

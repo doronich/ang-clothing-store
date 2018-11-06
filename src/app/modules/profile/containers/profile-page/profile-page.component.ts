@@ -24,6 +24,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(private tokenService: TokenService, private userDataService: UserDataService) { }
 
   ngOnInit() {
+    document.title = "STORE: profile"
     this.user = this.tokenService.getUser() as User;
     this.userDataService.getUserData(this.user.username).pipe(tap((data) => {
       this.userData = data;

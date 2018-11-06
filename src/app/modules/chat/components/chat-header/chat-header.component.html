@@ -1,0 +1,19 @@
+<div class="chat-header">
+
+  <div>Chat</div>
+  <div (click)="open.emit()">
+    <ng-container *ngIf="isOpened; else elseTemplate">
+      <button mat-icon-button>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <button mat-icon-button>
+        <mat-icon>arrow_drop_up</mat-icon>
+      </button>
+    </ng-template>
+
+
+  </div>
+
+</div>

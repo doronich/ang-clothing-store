@@ -12,13 +12,13 @@ nav{
 a{
     display: block;
     padding: 5px 10px;
-    border-bottom: 3px solid transparent;
+    border-bottom: 4px solid transparent;
 }
 
 a:hover{
-    border-bottom: 3px solid #FFD740;
+    border-bottom: 4px solid #FFD740;
 }
 
 .link_active{
-    border-bottom: 3px solid #FFD740;
+    border-bottom: 4px solid #FFD740;
 }

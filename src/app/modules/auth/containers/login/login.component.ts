@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    document.title = "STORE: login"
     this.store.dispatch(new AuthActions.LogOut())
     this.itemStore.dispatch(new ItemActions.ClearCart())
     /*     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/'; */

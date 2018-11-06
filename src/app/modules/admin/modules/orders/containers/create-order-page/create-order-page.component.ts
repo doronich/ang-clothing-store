@@ -28,6 +28,7 @@ export class CreateOrderPageComponent implements OnInit {
   constructor(private store: Store<fromCart.State>, private itemStore: Store<fromItems.State>, private authStore: Store<fromAuth.State>) { }
 
   ngOnInit() {
+    document.title = "STORE: shopping cart"
     this.store.dispatch(new GetUserInfo(""))
   }
 
