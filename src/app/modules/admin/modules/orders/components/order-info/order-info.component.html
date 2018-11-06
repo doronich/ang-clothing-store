@@ -1,27 +1,27 @@
 <div class="order-info">
-  <h1>{{title}} {{order.id}}</h1>
+  <h1>{{'orders.order' | translate}} {{order.id}}</h1>
 
   <form class="" [formGroup]="form" (ngSubmit)=submit()>
     <mat-form-field>
-      <mat-label>Name</mat-label>
+      <mat-label>{{'orders.table.name' | translate}}</mat-label>
       <input matInput formControlName="name" type="text">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Phone number</mat-label>
+      <mat-label>{{'orders.table.phone' | translate}}</mat-label>
       <input matInput formControlName="phoneNumber" type="text">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Address</mat-label>
+      <mat-label>{{'orders.table.address' | translate}}</mat-label>
       <input matInput formControlName="address" type="text">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Status</mat-label>
+      <mat-label>{{'orders.table.status' | translate}}</mat-label>
       <input matInput formControlName="status" type="number" min="0" max="3">
     </mat-form-field>
     <br>
-    <button mat-flat-button color="accent" type="submit" [disabled]="(form.invalid)">Update</button>
+    <button mat-flat-button color="accent" type="submit" [disabled]="(form.invalid)">{{'orders.update' | translate}}</button>
   </form>
 </div>

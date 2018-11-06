@@ -1,6 +1,6 @@
 <div class="centered container">
   <div class="items-container">
-    <h1>Items</h1>
+    <h1>{{'admin.items.title' | translate}}</h1>
     <app-items-table [items]="items" [error]="error" (deleteItem)="deleteItem($event)"></app-items-table>
   </div>
 </div>

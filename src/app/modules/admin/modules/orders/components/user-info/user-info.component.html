@@ -1,8 +1,8 @@
 <div>
-  <h2>Contact details</h2>
+  <h2>{{'shopcart.form.title'|translate}}</h2>
 </div>
 <ng-container *ngIf="userLoading; else elseTemplate">
-  Loading...
+  {{'loading'|translate}}
 </ng-container>
 <ng-template #elseTemplate>
   <form [formGroup]="form" (submit)="submit($event)">
@@ -21,37 +21,41 @@
       </div>
       <div class="flex-item">
         <div class="row-container">
-          <label for="">Name* :</label>
+          <label for="">{{'shopcart.form.name'|translate}}* :</label>
           <input formControlName="name" maxlength="20" type="text" value="" required>
         </div>
       </div>
       <div class="flex-item">
         <div class="row-container">
-          <label for="">Phone number* :</label>
+          <label for="">{{'shopcart.form.phoneNumber'|translate}}* :</label>
           <input formControlName="phone" maxlength="20" type="text" value="" required>
         </div>
       </div>
       <div class="flex-item">
         <div class="row-container">
-          <label for="">Address :</label>
+          <label for="">{{'shopcart.form.address'|translate}} :</label>
           <input formControlName="address" maxlength="50" type="text" value="">
         </div>
       </div>
       <div class="flex-item">
         <div class="row-container">
-          <label for="">Comment to order :</label>
+          <label for="">{{'shopcart.form.comment'|translate}} :</label>
           <input formControlName="comment" maxlength="250" type="text" value="">
         </div>
       </div>
       <div class="flex-item">
         <div class="row-container">
-          <label for="">Code :</label>
+          <label for="">{{'shopcart.form.code'|translate}} :</label>
           <input formControlName="code" maxlength="20" type="text" value="">
-          <button class="check-button" [ngClass]="{'valid-code': codeConfirmed}" [disabled]="codeConfirmed" (click)="check($event)">{{!codeConfirmed?"Check":"Ok"}}</button>
+          <button class="check-button" [ngClass]="{'valid-code': codeConfirmed}" [disabled]="codeConfirmed" (click)="check($event)">{{!codeConfirmed?('shopcart.form.check'|translate):"Ok"}}</button>
         </div>
       </div>
-      <input type="submit" value="Checkout" [disabled]="(form.invalid || checkoutLoading)">
-      <div class="error-message">{{error}}</div>
+      <input type="submit" translate [value]="'shopcart.form.confirm' | translate" [disabled]="(form.invalid || checkoutLoading)">
+
+      <div *ngIf="error ==='code'" class="error-message">{{'shopcart.codeerror' | translate}}</div>
+
+      <div *ngIf="error ==='loading'" class="error-message">{{'shopcart.error' | translate}}</div>
+
     </div>
   </form>
 </ng-template>

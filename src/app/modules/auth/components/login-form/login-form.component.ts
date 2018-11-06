@@ -8,7 +8,6 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  title = "Sign In"
   @Input() pending: boolean;
   @Input() errorMessage: string | null;
   @Output() submitted = new EventEmitter<LoginModel>();

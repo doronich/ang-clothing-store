@@ -1,5 +1,5 @@
 <ng-container *ngIf="loading; else elseTemplate">
-  Loading...
+  {{'loading' | translate}}
 </ng-container>
 <ng-template #elseTemplate>
   <ng-container *ngIf="item; else elsetemp">
@@ -9,18 +9,18 @@
       </div>
       <div class="info">
         <h3>{{item.name}}</h3>
-        <h6 *ngIf="!item.active">Item not availabel</h6>
-        <h4>Brand: {{item.brand}}</h4>
-        <h4>Color: {{item.color}}</h4>
-        <h4>Size: {{item.size}}</h4>
-        <h2>Prise: ${{item.price}}</h2>
+        <h6 *ngIf="!item.active">{{'item.notAv' | translate}}</h6>
+        <h4>{{'item.brand' | translate}}: {{item.brand}}</h4>
+        <h4>{{'item.color' | translate}}: {{item.color}}</h4>
+        <h4>{{'item.size' | translate}}: {{item.size}}</h4>
+        <h2>{{'item.price' | translate}}: ${{item.price}}</h2>
         <ng-container *ngIf="inCart; else elseTemplate">
-          <button (click)="remove.emit()" [disabled]="!item.active">Remove from cart</button>
+          <button (click)="remove.emit()" [disabled]="!item.active">{{'item.del' | translate}}</button>
         </ng-container>
         <ng-template #elseTemplate>
-          <button (click)="add.emit()" [disabled]="!item.active">Add to cart</button>
+          <button (click)="add.emit()" [disabled]="!item.active">{{'item.add' | translate}}</button>
         </ng-template>
-        <h4>Description: <h5>{{item.description}}</h5>
+        <h4>{{'item.desc' | translate}}: <h5>{{item.description}}</h5>
         </h4>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<h1>Shopping cart</h1>
+<h1>{{'shopcart.title' | translate}}</h1>
 <div class="container centered flex">
   <ng-container *ngIf="idsCount$|async; else elseTemplate">
     <app-itemlist class="flex-item" [ids]="ids$ | async" (getItems)="getItems($event)" [items]="items$ | async" [total]="total$ | async"
@@ -8,7 +8,7 @@
       [total]="total$ | async" (createOrder)="createOrder($event)" [checkoutLoading]="checkoutLoading$ | async" [user]="user$ | async"></app-user-info>
   </ng-container>
   <ng-template #elseTemplate>
-    <h5>Your shopping cart is empty.</h5>
+    <h5>{{'shopcart.empty'|translate}}</h5>
   </ng-template>
 
 </div>

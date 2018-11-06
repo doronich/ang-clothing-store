@@ -1,6 +1,6 @@
 <div class="chat-header">
 
-  <div>Chat</div>
+  <div>{{'chat.name' | translate}}</div>
   <div (click)="open.emit()">
     <ng-container *ngIf="isOpened; else elseTemplate">
       <button mat-icon-button>

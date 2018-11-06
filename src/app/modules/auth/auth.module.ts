@@ -17,6 +17,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { AdminGuard } from './services/guards/admin.guard';
 import { MaterialModule } from '../material';
 import { RegFormComponent } from './components/reg-form/reg-form.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { RegFormComponent } from './components/reg-form/reg-form.component';
     SharedModule,
     MaterialModule,
     AuthRoutingModule,
+    TranslateModule,
     StoreModule.forFeature('auth', reducers),
     EffectsModule.forFeature([AuthEffects])
   ],

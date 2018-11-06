@@ -18,7 +18,6 @@ export class RegFormComponent implements OnInit, OnChanges {
   @Output() submitted = new EventEmitter<RegModel>();
   @Input() exist: boolean;
   form: FormGroup;
-  title = "Sign Up"
 
   ngOnChanges(): void {
     if (this.exist != null && !this.exist) {

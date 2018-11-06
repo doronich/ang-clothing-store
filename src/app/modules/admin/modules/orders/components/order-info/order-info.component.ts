@@ -12,7 +12,6 @@ export class OrderInfoComponent implements OnInit {
   @Output() update = new EventEmitter<UpdateOrder>();
   @Input() order: Order;
   form: FormGroup;
-  title = "Order"
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {

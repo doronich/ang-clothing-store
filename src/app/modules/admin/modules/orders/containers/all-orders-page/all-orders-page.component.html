@@ -2,7 +2,7 @@
 
 
   <ng-container *ngIf="isLoading$ | async; else elseTemplate">
-    Loading...
+    {{'loading' | translate}}
   </ng-container>
   <ng-template #elseTemplate>
     <app-all-orders-table [dataSource]="orders$ | async" (remove)="removeOrder($event)">

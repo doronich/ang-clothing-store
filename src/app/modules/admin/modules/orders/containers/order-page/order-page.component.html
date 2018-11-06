@@ -2,14 +2,14 @@
 <div class="container order-page">
 
   <ng-container *ngIf="isPending$ | async; else orderTemplate">
-    Loading...
+    {{'loading' | translate}}
   </ng-container>
   <ng-template #orderTemplate>
     <app-order-info [order]="order$ | async" (update)="update($event)" class="order-block"></app-order-info>
   </ng-template>
 
   <ng-container *ngIf="isPendingItems$ | async; else itemsTemplate">
-    Loading...
+    {{'loading' | translate}}
   </ng-container>
   <ng-template #itemsTemplate>
     <app-order-items-list [orderItems]="orderItems$ | async" class="order-block"></app-order-items-list>

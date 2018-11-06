@@ -19,6 +19,7 @@ import { CategoryService } from './services/category.service';
 import { ItemPageComponent } from './containers/item-page/item-page.component';
 import { CurrentItemComponent } from './components/current-item/current-item.component';
 import { SlideshowModule } from 'ng-simple-slideshow'
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { SlideshowModule } from 'ng-simple-slideshow'
     MaterialModule,
     StoreModule.forFeature('items', reducers),
     EffectsModule.forFeature([ItemEffects]),
-    SlideshowModule
+    SlideshowModule,
+    TranslateModule
   ],
   declarations: [ItemsPageComponent, FiltersComponent, ItemsComponent, ItemComponent, FavItemComponent, PaginationComponent, ItemPageComponent, CurrentItemComponent],
   providers: [ItemService, CategoryService]

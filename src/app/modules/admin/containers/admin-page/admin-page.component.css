@@ -3,6 +3,7 @@
 }
 
 nav{
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -21,4 +22,11 @@ a:hover{
 
 .link_active{
     border-bottom: 4px solid #FFD740;
+}
+
+
+@media (max-width:600px){
+    nav{
+        font-size: 14px;
+    }
 }

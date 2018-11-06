@@ -2,5 +2,28 @@
     position: fixed;
     right: 25px;
     bottom: 10px;
+    z-index: 200;
 }
 
+.lang-box{
+    position: fixed;
+    top: 40px;
+    right: 0px;
+    z-index: 200;
+}
+
+
+
+.lang-box>button{
+    border: 1px solid black;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.unactive-button{
+    background-color: white;
+}
+
+.active-button{
+    background-color: #FFD740;
+}

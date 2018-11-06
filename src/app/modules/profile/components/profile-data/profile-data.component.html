@@ -1,22 +1,26 @@
-<h3>User info</h3>
+<h3>{{'profile.userinfo' | translate}}</h3>
 <form [formGroup]="form" (submit)="changeData($event)">
   <div class="user-data-container">
     <div>
       <label>E-mail: </label><input class="field" type="text" value="{{userData.email}}" readonly>
     </div>
     <div>
-      <label>Login: </label><input class="field" type="text" value="{{user.username}}" readonly>
+      <label>{{'account.info.login' | translate}}: </label><input class="field" type="text" value="{{user.username}}"
+        readonly>
     </div>
     <div>
-      <label>Firstname: </label><input class="field" maxlength="25" formControlName="firstName" type="text">
+      <label>{{'account.info.fname' | translate}}: </label><input class="field" maxlength="25" formControlName="firstName"
+        type="text">
     </div>
     <div>
-      <label>Surname: </label><input class="field" maxlength="25" formControlName="surname" type="text">
+      <label>{{'account.info.lname' | translate}}: </label><input class="field" maxlength="25" formControlName="surname"
+        type="text">
     </div>
     <div>
-      <label>Phone: </label><input class="field" maxlength="25" formControlName="phone" type="text">
+      <label>{{'account.info.tel' | translate}}: </label><input class="field" maxlength="25" formControlName="phone"
+        type="text">
     </div>
-    <input type="submit" value="Change">
+    <input type="submit" [value]="'account.info.change' | translate">
   </div>
   <h6>{{error}}</h6>
 </form>

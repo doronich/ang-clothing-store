@@ -2,7 +2,7 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="filter-item">
       <div>
-        Page size:
+        {{'filtres.pagesize' | translate}}:
         <select formControlName="pageSize" (change)="changePageSize($event)">
           <option value="5">5</option>
           <option value="10">10</option>
@@ -14,23 +14,23 @@
 
     <div class="filter-item">
       <mat-radio-group formControlName="gender">
-        <mat-radio-button value="male">Men</mat-radio-button>
+        <mat-radio-button value="male">{{'filtres.men' | translate}}</mat-radio-button>
         <br>
-        <mat-radio-button value="female">Women</mat-radio-button>
+        <mat-radio-button value="female">{{'filtres.women' | translate}}</mat-radio-button>
       </mat-radio-group>
     </div>
 
     <div class="filter-item">
       <mat-form-field color="accent">
-        <mat-label>Name</mat-label>
-        <input matInput formControlName="name" type="text" placeholder="Example: nike" autocomplete="off">
+        <mat-label>{{'filtres.name' | translate}}</mat-label>
+        <input matInput formControlName="name" type="text" placeholder="nike" autocomplete="off">
       </mat-form-field>
     </div>
 
     <div class="filter-item" *ngIf="!loading">
       <mat-form-field color="accent">
         <mat-select formControlName="category" placeholder="Category" (selectionChange)="selectCategory($event)">
-          <mat-option>None</mat-option>
+          <mat-option>{{'filtres.none' | translate}}</mat-option>
           <mat-option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -39,7 +39,7 @@
     <div class="filter-item" *ngIf="!loading">
       <mat-form-field color="accent">
         <mat-select formControlName="subCategory" placeholder="Subcategory">
-          <mat-option>None</mat-option>
+          <mat-option>{{'filtres.none' | translate}}</mat-option>
           <mat-option *ngFor="let sub of currentSubs" value="{{sub.id}}">{{sub.name}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -48,19 +48,19 @@
     <div class="filter-item">
       <div>
         <mat-form-field color="accent" class="price-item">
-          <mat-label>Min price</mat-label>
+          <mat-label>{{'filtres.min' | translate}}</mat-label>
           <input formControlName="minPrice" matInput type="number" min="0" step="5">
         </mat-form-field>
         <mat-form-field class="price-item">
-          <mat-label>Max price</mat-label>
+          <mat-label>{{'filtres.max' | translate}}</mat-label>
           <input matInput formControlName="maxPrice" type="number" min="0" step="5">
         </mat-form-field>
       </div>
     </div>
 
     <div class="filter-item">
-      <button mat-flat-button color="accent" type="submit">Apply</button>
-      <button mat-raised-button (click)="clear($event)">Reset</button>
+      <button mat-flat-button color="accent" type="submit">{{'filtres.apply' | translate}}</button>
+      <button mat-raised-button (click)="clear($event)">{{'filtres.reset' | translate}}</button>
     </div>
 
   </form>

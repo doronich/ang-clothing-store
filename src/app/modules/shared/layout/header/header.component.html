@@ -3,8 +3,9 @@
     <a routerLink="/" class="header-link">STORE</a>
   </div>
   <div class="header-menu">
-    <a routerLink="/admin" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">Admin</a>
-    <a routerLink="/items" class="header-link" routerLinkActive="header-link_active">Items</a>
+    <a routerLink="/admin" *ngIf="(loggedIn$ | async) && (isAdmin$ | async)" class="header-link" routerLinkActive="header-link_active">{{'header.admin'
+      | translate}}</a>
+    <a routerLink="/items" class="header-link" routerLinkActive="header-link_active">{{'header.items' | translate}}</a>
   </div>
 
   <div class="header-auth">
@@ -19,11 +20,12 @@
           <mat-icon>person</mat-icon>
         </button>
       </a>
-      <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Log out</a>
+      <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">{{'header.logout' | translate}}</a>
     </ng-container>
     <ng-template #elseTemplate>
-      <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">Sign in</a>
-      <a routerLink="/register" class="header-link" routerLinkActive="header-link_active">Sign up</a>
+      <a routerLink="/login" class="header-link" routerLinkActive="header-link_active">{{'header.signin' | translate}}</a>
+      <a routerLink="/register" class="header-link" routerLinkActive="header-link_active">{{'header.signup' |
+        translate}}</a>
     </ng-template>
   </div>
 </header>

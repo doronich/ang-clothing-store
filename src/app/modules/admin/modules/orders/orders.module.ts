@@ -19,6 +19,7 @@ import { CreateOrderPageComponent } from './containers/create-order-page/create-
 import { ItemlistComponent } from './components/itemlist/itemlist.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserService } from './services/user.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { UserService } from './services/user.service';
     OrdersRoutingModule,
     MaterialModule,
     FormsModule,
+    TranslateModule,
     StoreModule.forFeature('orders', reducers),
     EffectsModule.forFeature([OrderEffects]),
     NgxDatatableModule

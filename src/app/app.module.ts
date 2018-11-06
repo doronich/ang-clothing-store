@@ -31,7 +31,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomePageComponent } from './modules/home/containers/home-page/home-page.component';
 import { HomeCarouselComponent } from './modules/home/components/home-carousel/home-carousel.component';
 import { SlideshowModule } from 'ng-simple-slideshow';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+
+export function CreateTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -47,6 +54,14 @@ import { SlideshowModule } from 'ng-simple-slideshow';
   imports: [
     CommonModule,
     BrowserModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (CreateTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
@@ -71,8 +86,8 @@ import { SlideshowModule } from 'ng-simple-slideshow';
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
-
     CoreModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

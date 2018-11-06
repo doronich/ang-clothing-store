@@ -1,13 +1,13 @@
 <div>
-  <h2>Item list</h2>
+  <h2>{{'shopcart.list'|translate}}</h2>
   <ng-container *ngIf="items.length===0; else elseTemplate">
-    Loading...
+    {{'loading'|translate}}
   </ng-container>
   <ng-template #elseTemplate>
     <div class="grid-container">
-      <div class="grid-item item-name">name</div>
-      <div class="grid-item">amount</div>
-      <div class="grid-item">price</div>
+      <div class="grid-item item-name">{{'shopcart.header.name'|translate}}</div>
+      <div class="grid-item">{{'shopcart.header.amount'|translate}}</div>
+      <div class="grid-item">{{'shopcart.header.price'|translate}}</div>
       <div *ngFor="let item of items" class="grid-container grid-item grid-item-row">
         <a [routerLink]="[ '/items', item.id ]" class="item-name">
           <div class="item">{{item.name}}</div>
@@ -22,7 +22,7 @@
         <div (click)="remove(item.id)" class="remove">X</div>
       </div>
     </div>
-    <h3>Total: ${{total}}</h3>
+    <h3>{{'shopcart.footer.total'|translate}}: ${{total}}</h3>
   </ng-template>
 
 </div>

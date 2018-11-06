@@ -8,13 +8,15 @@ import { ProfileOrdersComponent } from './components/profile-orders/profile-orde
 import { UserDataService } from './services';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     ProfileRoutingModule,
     ReactiveFormsModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    TranslateModule
   ],
   declarations: [ProfilePageComponent, ProfileDataComponent, ProfilePasswordComponent, ProfileOrdersComponent],
   providers: [UserDataService]

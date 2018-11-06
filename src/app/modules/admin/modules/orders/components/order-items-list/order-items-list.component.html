@@ -1,11 +1,11 @@
 <div>
-  <h1>{{title}}: {{orderItems.length}}</h1>
+  <h1>{{'orders.items.title' | translate}}: {{orderItems.length}}</h1>
   <div class="order-list-item">
     <div class="item item-15">Id</div>
-    <div class="item item-70">Name</div>
+    <div class="item item-70">{{'orders.items.name' | translate}}</div>
 
-    <div class="item item-15">Price</div>
-    <div class="item item-10">Amount</div>
+    <div class="item item-15">{{'orders.items.price' | translate}}</div>
+    <div class="item item-10">{{'orders.items.amount' | translate}}</div>
   </div>
   <app-order-list-item *ngFor="let item of orderItems" [item]="item"></app-order-list-item>
 

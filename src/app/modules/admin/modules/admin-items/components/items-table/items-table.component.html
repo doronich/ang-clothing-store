@@ -1,8 +1,8 @@
 <div class="items-box">
   <div class="nav-box">
-    <div>Total result: {{items.length}}</div>
+    <div>{{'admin.items.total' | translate}}: {{items.length}}</div>
     <h3 class="error">{{error}}</h3>
-    <div>Add item
+    <div>{{'admin.items.add' | translate}}
       <a [routerLink]="['add']">
         <button mat-icon-button>
           <mat-icon>add</mat-icon>
@@ -13,10 +13,10 @@
   <div class="items-list">
     <div class="item-header-row">
       <div>Id</div>
-      <div>Name</div>
-      <div>Price</div>
-      <div>Active</div>
-      <div>Actions</div>
+      <div>{{'admin.items.name' | translate}}</div>
+      <div>{{'admin.items.price' | translate}}</div>
+      <div>{{'admin.items.active' | translate}}</div>
+      <div>{{'admin.items.actions' | translate}}</div>
     </div>
     <ng-container *ngIf="items.length !== 0; else elseTemplate">
       <div *ngFor="let item of items" class="item-row">
@@ -26,15 +26,16 @@
         <div>{{item.active}}</div>
         <div>
           <a [routerLink]="['edit',item.id]">
-            <div class="item-action item-action__edit">edit</div>
+            <div class="item-action item-action__edit">{{'admin.items.edit' | translate}}</div>
           </a>
-          <div class="item-action item-action__remove" (click)="deleteItem.emit(item.id)">delete</div>
+          <div class="item-action item-action__remove" (click)="deleteItem.emit(item.id)">{{'admin.items.delete' |
+            translate}}</div>
         </div>
       </div>
 
     </ng-container>
     <ng-template #elseTemplate>
-      <h3>Items not found.</h3>
+      <h3>{{'admin.items.notfound' | translate}}</h3>
     </ng-template>
 
   </div>

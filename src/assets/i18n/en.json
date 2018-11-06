@@ -1,0 +1,250 @@
+{
+    "header": {
+        "logout": "Log out",
+        "signin": "Sign in",
+        "signup": "Sign up",
+        "items": "Products",
+        "admin": "Admin"
+    },
+    "footer": {
+        "info": {
+            "info": "Information",
+            "contacts": "Contacts",
+            "about": "About us",
+            "delivery": "Delivery"
+        },
+        "additional": {
+            "additional": "Additional"
+        },
+        "acc": {
+            "acc": "Profile",
+            "reg": "Sign up",
+            "log": "Sign in",
+            "favs": "Favorites"
+        }
+    },
+    "chat": {
+        "name": "Chat",
+        "auth": "To write you must ",
+        "log": "sign in",
+        "typing": "typing..."
+    },
+    "currency": " $",
+    "loading": "Loading...",
+    "notfound": "Page not found.",
+    "account": {
+        "logout": "Logout",
+        "signin": "Sign In",
+        "signinTitle": "Authorization",
+        "signup": "Sign Up",
+        "login": "Login",
+        "emailreq": "Email is not valid.",
+        "loginreq": "Login must have atleast 6 characters.",
+        "pass": "Password",
+        "curpass": "Current password",
+        "newpass": "New password",
+        "passreq": "At least 6 characters; 1 lowercase and 1 upperrcase character; 1 digit from 0-9.",
+        "confpass": "Repeat password",
+        "passmism": "Password dismatch",
+        "okpass": "The password successfully changed",
+        "errpass": "Incorrect password",
+        "fname": "First name",
+        "lname": "Last name",
+        "needReg": "Need an account?",
+        "needLog": "Have an account?",
+        "errsignin": "Incorrect login or password.",
+        "profile": "Profile",
+        "resetpass": "Reset password",
+        "changepass": "Change password",
+        "info": {
+            "title": "Account Info",
+            "email": "E-mail",
+            "login": "Login",
+            "fname": "First name",
+            "lname": "Last name",
+            "tel": "Cell number",
+            "change": "Change"
+        },
+        "okdata": "Your data has been successfully changed",
+        "errdata": "Failed to change the data"
+    },
+    "shopcart": {
+        "title": "Shopping cart",
+        "empty": "Your shopping cart is empty",
+        "list": "Product list",
+        "header": {
+            "name": "Name",
+            "price": "Price",
+            "amount": "Amount"
+        },
+        "footer": {
+            "total": "Total"
+        },
+        "form": {
+            "title": "Contact details",
+            "name": "Name",
+            "address": "Address",
+            "phoneNumber": "Cell number",
+            "comment": "Comment to the order",
+            "confirm": "Checkout",
+            "code": "Coupon code",
+            "check": "Check"
+        },
+        "response": "Order successfully added",
+        "error": "Error while creating new order.",
+        "codeerror": "Invalid code."
+    },
+    "orders": {
+        "title": "Orders",
+        "order": "Order",
+        "update": "Update",
+        "items": {
+            "title": "Order items",
+            "name": "Name",
+            "price": "Price",
+            "amount": "Amount"
+        },
+        "table": {
+            "name": "Name",
+            "phone": "Phone number",
+            "comment": "Comment",
+            "address": "Address",
+            "email": "Email",
+            "totalprice": "BYN Total price",
+            "status": "Status",
+            "createddate": "Date of create",
+            "code": "Coupon code",
+            "discount": "Discount %",
+            "yourorders": "Your orders",
+            "username": "Username",
+            "statuses": {
+                "queue": "In the queue",
+                "execute": "Executing",
+                "paid": "Paid",
+                "canceled": "Canceled"
+            }
+        }
+    },
+    "admin": {
+        "nav": {
+            "orders": "Orders",
+            "items": "Products",
+            "filtres": "Filtres",
+            "users": "Users"
+        },
+        "items": {
+            "title": "Products",
+            "total": "Total result",
+            "add": "Add product",
+            "name": "Name",
+            "price": "Price",
+            "active": "Active",
+            "actions": "Actions",
+            "notfound": "Products not found.",
+            "edit": "edit",
+            "delete": "delete"
+        },
+        "item": {
+            "create": "Create",
+            "edit": "Edit",
+            "uni": "Uni",
+            "m": "Male",
+            "f": "Female",
+            "active": "Is product active?",
+            "name": "Name",
+            "namereq": "Name is required",
+            "color": "Color",
+            "brand": "Brand",
+            "size": "Size",
+            "price": "Price",
+            "disc": "Discount",
+            "desc": "Description",
+            "none": "None",
+            "update": "Update"
+        }
+    },
+    "profile": {
+        "title": "Profile",
+        "userinfo": "User info",
+        "pass": "Password",
+        "change": "Change",
+        "orders": "Your orders"
+    },
+    "filtres": {
+        "pagesize": "Page size",
+        "men": "Men",
+        "women": "Women",
+        "name": "Name",
+        "none": "None",
+        "kind": "Cathegory",
+        "subkind": "Subcathegory",
+        "min": "Min price",
+        "max": "Max price",
+        "apply": "Apply",
+        "color": "Color",
+        "brand": "Brand",
+        "searchByName": "Search by name",
+        "reset": "Reset",
+        "kinds": {
+            "clothing": "Clothing",
+            "footwear": "Shoes",
+            "accessories": "Accessories",
+            "other": "Other"
+        },
+        "subkinds": {
+            "jeans": "Jeans",
+            "shorts": "Shorts",
+            "shirts": "Shirts",
+            "pants": "Pants",
+            "hoodies": "Hoodies",
+            "jackets": "Jacket",
+            "outerwear": "Outerwear",
+            "costumes": "Costumes",
+            "sneakers": "Sneakers",
+            "shoes": "Shoes",
+            "boots": "Boots",
+            "bags": "Bags",
+            "backpacks": "Backpacks",
+            "glasses": "Glasses",
+            "cases": "Cases",
+            "watches": "Watches"
+        },
+        "colors": {
+            "beige": "Beige",
+            "black": "Black",
+            "blue": "Blue",
+            "brown": "Brown",
+            "cream": "Cream",
+            "gray": "Gray",
+            "green": "Green",
+            "multi": "Multi",
+            "navy": "Navy",
+            "orange": "Orange",
+            "pink": "Pink",
+            "purple": "Purple",
+            "red": "Red",
+            "white": "White",
+            "yellow": "Yellow"
+        }
+    },
+    "item": {
+        "change": "Change",
+        "remove": "Remove",
+        "brand": "Brand",
+        "color": "Color",
+        "size": "Size",
+        "desc": "Description",
+        "add": "Add to cart",
+        "added": "Added",
+        "notAv": "Not available",
+        "cancel": "Cancel",
+        "price": "Price",
+        "del": "Remove from cart"
+    },
+    "items": {
+        "noitems": "No products."
+    },
+    "favs": {
+        "empty": "Empty"
+    }
+}

@@ -6,7 +6,7 @@
   </div>
   <div class="descr">
     <div class="not-active" *ngIf="!item.active">
-      Not available
+      {{'item.notAv' | translate}}
     </div>
     <a [routerLink]="[ '/items', item.id ]">
       <div class="item item-name" title="{{item.name}}">

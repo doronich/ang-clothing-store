@@ -9,13 +9,15 @@ import { EditItemPageComponent } from './containers/edit-item-page/edit-item-pag
 import { CreateItemPageComponent } from './containers/create-item-page/create-item-page.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    TranslateModule
   ],
   providers: [AdminItemsService],
   declarations: [AdminItemsPageComponent, ItemsTableComponent, EditItemPageComponent, CreateItemPageComponent, EditItemComponent]

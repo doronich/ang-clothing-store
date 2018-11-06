@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { OrdersModule } from './modules/orders/orders.module';
 import { SomeComponent } from './components/some/some.component';
 import { AdminItemsModule } from './modules/admin-items/admin-items.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { AdminItemsModule } from './modules/admin-items/admin-items.module';
     AdminRoutingModule,
     OrdersModule,
     AdminItemsModule,
+    TranslateModule
   ],
   declarations: [AdminPageComponent, SomeComponent]
 })

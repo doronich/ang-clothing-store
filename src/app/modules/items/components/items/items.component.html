@@ -1,5 +1,5 @@
 <ng-container *ngIf="loading; else elseTemplate">
-  Loading...
+  {{'loading' | translate}}
 </ng-container>
 <ng-template #elseTemplate>
   <ng-container *ngIf="items.length>0; else empty">
@@ -10,7 +10,7 @@
     </div>
   </ng-container>
   <ng-template #empty>
-    <h3>No products</h3>
+    <h3>{{'items.noitems' | translate}}</h3>
   </ng-template>
 
 

@@ -4,7 +4,7 @@
   </div>
   <div *ngIf="typing">
     <span *ngFor="let user of users">{{user}} </span>
-    typing...
+    {{'chat.typing' | translate}}
   </div>
   <form [formGroup]="form" class="input-box" (submit)="send($event)">
     <ng-container *ngIf="loggedIn; else elseTemplate">
@@ -19,7 +19,7 @@
 
     </ng-container>
     <ng-template #elseTemplate>
-      You have to <a routerLink="/login" class="link">Sign in</a>
+      {{'chat.auth' | translate}}<a routerLink="/login" class="link">{{'chat.log' | translate}}</a>
     </ng-template>
   </form>
 

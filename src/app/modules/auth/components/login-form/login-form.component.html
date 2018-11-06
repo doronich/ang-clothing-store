@@ -1,18 +1,19 @@
 <div class="login-form">
-  <h1 class="login-form-title">{{title}}</h1>
+  <h1 class="login-form-title">{{'account.signin' | translate}}</h1>
   <form [formGroup]="form" (ngSubmit)="submit()">
     <mat-form-field>
-      <mat-label>Login</mat-label>
+      <mat-label>{{'account.login' | translate}}</mat-label>
       <input matInput formControlName="login" type="text">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <mat-label>Password</mat-label>
+      <mat-label>{{'account.pass' | translate}}</mat-label>
       <input matInput formControlName="password" type="password">
     </mat-form-field>
     <br>
-    <button mat-flat-button color="accent" type="submit" [disabled]="(pending || form.invalid)">Sign in</button>
-    <h6 class="login-err" *ngIf="errorMessage">{{errorMessage}}</h6>
+    <button mat-flat-button color="accent" type="submit" [disabled]="(pending || form.invalid)">{{'account.signin' |
+      translate}}</button>
+    <h6 class="login-err" *ngIf="errorMessage">{{'account.errsignin' | translate}}</h6>
     <p class="login-spinner">
       <mat-progress-spinner diameter='50' *ngIf="pending" color="accent" mode="indeterminate"></mat-progress-spinner>
     </p>

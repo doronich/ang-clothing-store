@@ -9,7 +9,6 @@ import { OrderItem } from '../../models';
 export class OrderItemsListComponent implements OnInit {
 
   @Input() orderItems: OrderItem[];
-  title = "Order items"
   constructor() { }
 
   ngOnInit() {
