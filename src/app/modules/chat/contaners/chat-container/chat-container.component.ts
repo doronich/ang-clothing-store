@@ -15,7 +15,6 @@ import { TokenService } from 'src/app/modules/auth/services';
 })
 export class ChatContainerComponent implements OnInit {
   private _hubConnection: HubConnection | undefined;
-  public async: any;
   user: User;
   messages: Message[] = [];
   users: string[] = [];

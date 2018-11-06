@@ -9,7 +9,6 @@
   <form [formGroup]="form" class="input-box" (submit)="send($event)">
     <ng-container *ngIf="loggedIn; else elseTemplate">
 
-
       <input class="input-message" maxlength="100" type="text" formControlName="message" (keypress)="changeInput.emit($event)"
         autocomplete="off">
 

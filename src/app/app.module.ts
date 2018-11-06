@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './modules/core/core.module';
-import { SharedModule } from './modules/shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './modules/shared/layout/header/header.component';
-import { FooterComponent } from './modules/shared/layout/footer/footer.component';
+import { HeaderComponent } from './modules/layout/header/header.component';
+import { FooterComponent } from './modules/layout/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthModule } from './modules/auth/auth.module';
@@ -64,7 +63,6 @@ export function CreateTranslateLoader(http: HttpClient) {
     }),
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    SharedModule,
     AuthModule,
     MaterialModule,
     ItemsModule,

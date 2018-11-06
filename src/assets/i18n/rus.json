@@ -75,7 +75,7 @@
         "header": {
             "name": "Название",
             "price": "Цена",
-            "amount": "Количество"
+            "amount": "Кол-во"
         },
         "footer": {
             "total": "Итого"

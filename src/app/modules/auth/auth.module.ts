@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { LoginComponent } from './containers/login/login.component';
 import { RegisterComponent } from './containers/register/register.component';
 import { AuthRoutingModule } from './auth-routing.module';
-import { SharedModule } from '../shared/shared.module';
+
 import { ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from '../core/core.module';
 
@@ -24,7 +24,6 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     ReactiveFormsModule,
     CoreModule,
-    SharedModule,
     MaterialModule,
     AuthRoutingModule,
     TranslateModule,

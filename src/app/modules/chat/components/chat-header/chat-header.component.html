@@ -1,5 +1,4 @@
 <div class="chat-header">
-
   <div>{{'chat.name' | translate}}</div>
   <div (click)="open.emit()">
     <ng-container *ngIf="isOpened; else elseTemplate">
@@ -12,8 +11,5 @@
         <mat-icon>arrow_drop_up</mat-icon>
       </button>
     </ng-template>
-
-
   </div>
-
 </div>
