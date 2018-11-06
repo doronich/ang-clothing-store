@@ -29,7 +29,7 @@
 
     <div class="filter-item" *ngIf="!loading">
       <mat-form-field color="accent">
-        <mat-select formControlName="category" placeholder="Category" (selectionChange)="selectCategory($event)">
+        <mat-select formControlName="category" [placeholder]="'filtres.kind' | translate" (selectionChange)="selectCategory($event)">
           <mat-option>{{'filtres.none' | translate}}</mat-option>
           <mat-option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</mat-option>
         </mat-select>
@@ -38,7 +38,7 @@
 
     <div class="filter-item" *ngIf="!loading">
       <mat-form-field color="accent">
-        <mat-select formControlName="subCategory" placeholder="Subcategory">
+        <mat-select formControlName="subCategory" [placeholder]="'filtres.subkind' | translate">
           <mat-option>{{'filtres.none' | translate}}</mat-option>
           <mat-option *ngFor="let sub of currentSubs" value="{{sub.id}}">{{sub.name}}</mat-option>
         </mat-select>
