@@ -49,7 +49,6 @@ export class FiltersComponent implements OnInit {
           filters.pageIndex = 1;
           this.pageSizeChanged = false;
         } */
-    console.log(filters)
     this.search.emit(filters);
   }
 

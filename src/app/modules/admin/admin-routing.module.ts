@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from '../auth/services';
 import { AdminPageComponent } from './containers/admin-page/admin-page.component';
 import { OrderPageComponent, AllOrdersPageComponent } from './modules/orders/containers';
-import { OrdersModule } from './modules/orders/orders.module';
-import { SomeComponent } from './components/some/some.component';
 import { AdminItemsPageComponent } from './modules/admin-items/containers/admin-items-page/admin-items-page.component';
 import { CreateItemPageComponent } from './modules/admin-items/containers/create-item-page/create-item-page.component';
 import { EditItemPageComponent } from './modules/admin-items/containers/edit-item-page/edit-item-page.component';

@@ -20,7 +20,7 @@ export class ItemService {
         params = params.set(item, filters[item]);
     });
 
-    console.log('[GET_BY] Params', params)
+    //console.log('[GET_BY] Params', params)
     return this.apiServcie.get(`/item/q`, params).pipe(
       map(data => {
         return data as ItemsResponse;

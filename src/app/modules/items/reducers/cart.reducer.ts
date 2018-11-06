@@ -6,7 +6,7 @@ export interface State {
 }
 
 const initialState: State = {
-    items: localStorage.getItem('cart') !== null ? JSON.parse(localStorage.getItem('cart')) : [181]
+    items: localStorage.getItem('cart') !== null ? JSON.parse(localStorage.getItem('cart')) : []
 }
 
 export function reducer(state = initialState, action: CartActionsUnion) {
