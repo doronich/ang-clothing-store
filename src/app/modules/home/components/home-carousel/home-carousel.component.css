@@ -1,0 +1,12 @@
+
+.carousel-container{
+    height: 600px;
+    width: 100%;
+    background-color: #202324;
+}
+
+@media (max-width:600px){
+    .carousel-container{
+        height: 60vh;
+    }
+}

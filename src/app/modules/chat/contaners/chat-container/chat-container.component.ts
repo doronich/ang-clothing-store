@@ -20,7 +20,7 @@ export class ChatContainerComponent implements OnInit {
   messages: Message[] = [];
   users: string[] = [];
   loggedIn$ = this.store.pipe(select(fromAuth.getLoggedIn));
-  isOpened: boolean = true;
+  isOpened: boolean = false;
   typing: boolean = false;
   timerId = null;
 

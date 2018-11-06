@@ -46,7 +46,6 @@ export class AuthEffects {
     loginSuccess$: Observable<any> = this.actions$.pipe(
         ofType(AuthActionTypes.LOGIN_SUCCESS),
         tap(() => {
-            console.warn("#Sign in")
             this.router.navigate(['/'])
         })
     );
@@ -60,7 +59,6 @@ export class AuthEffects {
     logout$: Observable<any> = this.actions$.pipe(
         ofType(AuthActionTypes.LOGOUT),
         tap(() => {
-            console.warn("#Logout")
             this.tokenService.destroyToken();
         })
     )
@@ -93,7 +91,6 @@ export class AuthEffects {
     signupSuccess$: Observable<any> = this.actions$.pipe(
         ofType(AuthActionTypes.SIGNUP_SUCCESS),
         tap(() => {
-            console.warn("#Sign in")
             this.router.navigate(['/'])
         })
     );

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../core/services';
-import { Filters, Fav, ItemForCart } from '../models';
+import { Filters, Fav, ItemForCart, PreviewItem } from '../models';
 import { HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -24,6 +24,14 @@ export class ItemService {
     return this.apiServcie.get(`/item/q`, params).pipe(
       map(data => {
         return data as ItemsResponse;
+      })
+    )
+  }
+
+  getRandomItems(amount: number = 6): Observable<PreviewItem[]> {
+    return this.apiServcie.get(`/item/random?amount=${amount}`).pipe(
+      map(data => {
+        return data as PreviewItem[];
       })
     )
   }

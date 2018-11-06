@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './modules/shared/layout/header/header.component';
 import { FooterComponent } from './modules/shared/layout/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './containers/home/home.component';
+
 import { AuthModule } from './modules/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -28,16 +28,21 @@ import { ChatContainerComponent } from './modules/chat/contaners/chat-container/
 import { ChatComponent } from './modules/chat/components/chat/chat.component';
 import { ChatHeaderComponent } from './modules/chat/components/chat-header/chat-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './modules/home/containers/home-page/home-page.component';
+import { HomeCarouselComponent } from './modules/home/components/home-carousel/home-carousel.component';
+import { SlideshowModule } from 'ng-simple-slideshow';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
     ChatContainerComponent,
     ChatComponent,
-    ChatHeaderComponent
+    ChatHeaderComponent,
+    HomePageComponent,
+    HomeCarouselComponent
   ],
   imports: [
     CommonModule,
@@ -51,6 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileModule,
     AdminModule,
     AppRoutingModule,
+    SlideshowModule,
     StoreModule.forRoot(reducers, { metaReducers }),
 
     StoreRouterConnectingModule.forRoot({

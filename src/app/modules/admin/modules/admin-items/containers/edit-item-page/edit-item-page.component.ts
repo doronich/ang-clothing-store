@@ -58,7 +58,8 @@ export class EditItemPageComponent implements OnInit {
   }
 
   update(data: EditItem) {
-    this.adminItemsService.updateItem(data).subscribe();
+    this.adminItemsService.updateItem(data).pipe(
+    ).subscribe();
   }
 
 }
