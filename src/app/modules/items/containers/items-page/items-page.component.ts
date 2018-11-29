@@ -20,7 +20,7 @@ export class ItemsPageComponent implements OnInit {
   error$: Observable<any> = this.store.pipe(select(fromItems.getError));
   loading$: Observable<boolean> = this.store.pipe(select(fromItems.getLoading));
   pageData$: Observable<PageData> = this.store.pipe(select(fromItems.getPageData));
-  catsLodaing$: Observable<boolean> = this.store.pipe(select(fromItems.getCatsLoading));
+  catsLoading$: Observable<boolean> = this.store.pipe(select(fromItems.getCatsLoading));
   categories$: Observable<Category[]> = this.store.pipe(select(fromItems.getCategories));
   subCategories$: Observable<SubCategory[]> = this.store.pipe(select(fromItems.getSubCategories));
   isLoggedIn$: Observable<boolean> = this.authStore.pipe(select(fromAuth.getLoggedIn));

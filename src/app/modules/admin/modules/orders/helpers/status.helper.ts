@@ -2,16 +2,21 @@ export const statusHelper = {
     getStatus
 }
 
+const queue = "queue";
+const executed = "executed";
+const paid = "paid";
+const cancelled = "cancelled";
+
 function getStatus(n: number) {
     switch (n) {
         case 0:
-            return "queue"//<Loc locKey="orders.table.statuses.queue" />;
+            return queue;
         case 1:
-            return "executed"//<Loc locKey="orders.table.statuses.execute" />;
+            return executed;
         case 2:
-            return "paid"//<Loc locKey="orders.table.statuses.paid" />;
+            return paid;
         case 3:
-            return "cancelled"//<Loc locKey="orders.table.statuses.canceled" />;
+            return cancelled;
         default:
             break;
     }

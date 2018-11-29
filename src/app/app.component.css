@@ -12,16 +12,14 @@
     z-index: 200;
 }
 
-
+button{
+    background-color: white;
+}
 
 .lang-box>button{
     border: 1px solid black;
     margin-right: 2px;
     cursor: pointer;
-}
-
-.unactive-button{
-    background-color: white;
 }
 
 .active-button{

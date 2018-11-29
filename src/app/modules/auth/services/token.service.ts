@@ -8,10 +8,7 @@ export class TokenService {
 
   getToken(): string {
     const token = window.localStorage["token"];
-    if (token) {
-      return JSON.parse(token).access_token;
-    }
-    return "";
+    return token ? JSON.parse(token).access_token : "";
   }
 
   getUser(): User {

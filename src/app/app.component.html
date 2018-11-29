@@ -9,8 +9,8 @@
 </div>
 
 <div class="lang-box">
-  <button (click)="switchLanguage('en')" class="unactive-button" [ngClass]="{'active-button': isEng}">eng</button>
-  <button (click)="switchLanguage('rus')" class="unactive-button" [ngClass]="{'active-button': !isEng}">rus</button>
+  <button (click)="switchLanguage(en)" [ngClass]="{'active-button': isEng}">eng</button>
+  <button (click)="switchLanguage(ru)" [ngClass]="{'active-button': !isEng}">rus</button>
 </div>
 
 <app-chat-container class="chat-container"></app-chat-container>
