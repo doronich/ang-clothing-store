@@ -1,5 +1,5 @@
 <div class="chat-box">
-  <app-chat-header (open)="open($event)" [isOpened]="isOpened"></app-chat-header>
+  <app-chat-header (open)="open()" [isOpened]="isOpened"></app-chat-header>
   <app-chat *ngIf="isOpened" [loggedIn]="loggedIn$ | async" [messages]="messages" (sendMessage)="sendMessage($event)"
     [typing]="typing" [users]="users" (changeInput)="startTyping($event)"></app-chat>
 </div>
