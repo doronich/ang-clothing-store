@@ -36,7 +36,7 @@ export class ChatContainerComponent implements OnInit {
     this.user = this.tokenService.getUser() as User;
     this._hubConnection = new signalR.HubConnectionBuilder()
       .withUrl(`${environment.api_url}/chat`)
-      .configureLogging(signalR.LogLevel.Information)
+      .configureLogging(signalR.LogLevel.None)
       .build();
 
     this._hubConnection.start().catch(err => console.error(err.toString()));

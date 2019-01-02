@@ -57,7 +57,8 @@ export function reducer(state = initialState, action: ItemActionsUnion): State {
             return {
                 ...state,
                 isLoading: false,
-                error: "Error while loading items."
+                error: "Error while loading items.",
+                items: []
             }
         }
         case ItemActionTypes.AddFav: {

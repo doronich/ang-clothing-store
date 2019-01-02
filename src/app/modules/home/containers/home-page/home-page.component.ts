@@ -18,13 +18,14 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.itemService.getRandomItems().pipe(
       tap(items => {
-        this.images = items.map(i => new Object({
-          url: i.image,
-          caption: i.name,
-          clickAction: () => {
-            this.router.navigate(['items', i.id])
-          }
-        }));
+        if (items.length > 0)
+          this.images = items.map(i => new Object({
+            url: i.image,
+            caption: i.name,
+            clickAction: () => {
+              this.router.navigate(['items', i.id])
+            }
+          }));
       })
     ).subscribe()
   }

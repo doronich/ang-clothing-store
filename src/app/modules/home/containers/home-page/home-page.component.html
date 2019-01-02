@@ -1,4 +1,4 @@
 <div class="home-container">
 
-  <app-home-carousel *ngIf="images" [images]="images"></app-home-carousel>
+  <app-home-carousel *ngIf="images.length > 0" [images]="images"></app-home-carousel>
 </div>
